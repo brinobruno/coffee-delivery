@@ -10,3 +10,11 @@
 
 ### Extra features
 [ ] - Dark mode - 2 styled themes
+
+### Concepts
+- States
+- ContextAPI
+- LocalStorage
+- State Immutability
+- Lists and keys
+- Properties
