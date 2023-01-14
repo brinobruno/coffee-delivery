@@ -31,6 +31,27 @@ export const HomeCoverContainer = styled.section`
   p {
     color: ${(props) => props.theme['gray-800']};
   }
+
+  @media (max-width: 1000px) {
+    div > img {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    & {
+      flex-direction: column;
+      gap: 4rem;
+      padding: 2rem 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    & h1 {
+      font-size: 2.5rem;
+      line-height: 50px;
+    }
+  }
 `
 
 export const HomeInformationContainer = styled.div`
@@ -38,4 +59,12 @@ export const HomeInformationContainer = styled.div`
   flex-direction: column;
 
   max-width: 36rem;
+
+  @media (max-width: 1000px) {
+    max-width: 50%;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `

@@ -8,6 +8,16 @@ export const InformationItems = styled.div`
   grid-column-gap: 40px;
 
   padding-top: 4.125rem;
+
+  @media (max-width: 500px) {
+    & {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: unset;
+
+      padding-top: 2rem;
+    }
+  }
 `
 
 const INFORMATION_ITEM_COLORS = {

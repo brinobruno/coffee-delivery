@@ -12,4 +12,8 @@ export const LayoutContainer = styled.div`
     display: flex;
     gap: 0.75rem;
   }
+
+  @media (max-width: 500px) {
+    padding: 0 1.5rem;
+  }
 `
