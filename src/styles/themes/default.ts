@@ -1,6 +1,10 @@
+import backgroundHome from './../../assets/background.svg'
+
 // Light theme - primary/default
 export const defaultTheme = {
   white: '#FFF',
+
+  'background-home': backgroundHome,
 
   // Background
   'gray-100': '#FAFAFA',
