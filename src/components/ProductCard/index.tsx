@@ -1,6 +1,6 @@
 import { useTheme } from 'styled-components'
-
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+
 import {
   ProductCardContainer,
   PurchaseContainer,
@@ -16,6 +16,8 @@ interface IProductCard {
   description: string
   price: number
 }
+
+export interface ProductsRepositoryData extends Array<IProductCard> {}
 
 export function ProductCard({
   picture,
