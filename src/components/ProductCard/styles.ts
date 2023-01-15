@@ -131,5 +131,9 @@ export const AddItemsWrapper = styled.div`
     &:focus {
       box-shadow: none;
     }
+
+    &::placeholder {
+      color: ${(props) => props.theme['purple-700']}
+    }
   }
 `

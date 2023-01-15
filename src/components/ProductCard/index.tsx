@@ -55,7 +55,7 @@ export function ProductCard({
               cursor="pointer"
               alt="Remove 1 more"
             />
-            <input type="text" inputMode="numeric" value={1} />
+            <input type="text" inputMode="numeric" placeholder="1" />
             <Plus
               size={14}
               color={currentTheme['purple-700']}
