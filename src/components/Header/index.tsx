@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 
+import { ThemeSwitcher } from './components/ThemeSwitcher'
 import { CartWrapper, HeaderContainer, MapWrapper } from './styles'
 import logo from './../../assets/logo.svg'
 
@@ -12,6 +13,8 @@ export function Header() {
       </NavLink>
 
       <nav>
+        <ThemeSwitcher />
+
         <NavLink to="/" title="Home">
           <MapWrapper>
             <MapPin size={24} color="#8047F8" />
