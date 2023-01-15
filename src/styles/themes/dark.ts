@@ -7,7 +7,7 @@ export const darkTheme = {
   'background-home': backgroundHome,
 
   // Background
-  'gray-100': '#272221',
+  'gray-100': '#241D2C',
   // Card
   'gray-200': '#403937',
   // Input
