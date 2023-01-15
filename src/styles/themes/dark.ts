@@ -1,6 +1,10 @@
+import backgroundHome from './../../assets/background.svg'
+
 // Dark theme
 export const darkTheme = {
   white: '#FFF',
+
+  'background-home': backgroundHome,
 
   // Background
   'gray-100': '#272221',
