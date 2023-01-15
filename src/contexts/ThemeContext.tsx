@@ -53,6 +53,7 @@ export const useThemeContext = () => {
   }
 
   return {
+    isDarkTheme,
     changeTheme,
   }
 }
