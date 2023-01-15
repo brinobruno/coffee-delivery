@@ -26,7 +26,7 @@ export const darkTheme = {
   'gray-900': '#FAFAFA',
 
   'purple-300': '#4B2995',
-  'purple-500': '#8047F8',
+  'purple-500': '#B18EFD',
   'purple-700': '#EBE5F9',
 
   'yellow-300': '#C47F17',
