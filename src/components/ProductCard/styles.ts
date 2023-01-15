@@ -8,7 +8,7 @@ export const ProductCardContainer = styled.li`
 
   background: ${(props) => props.theme['gray-200']};
   border-radius: 6px 36px;
-  padding: 0 1.5rem 1.125rem;
+  padding: 0 1.25rem 1.125rem;
 
   @media (max-width: 1100px) {
     padding: 0 1rem 0.75rem;
@@ -82,6 +82,17 @@ export const PurchaseContainer = styled.div`
     gap: 0.5rem;
     align-items: center;
   }
+
+  strong {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.25rem;
+    line-height: 2rem;
+
+    span {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.875rem;
+    }
+  }
 `
 export const CartWrapper = styled.div`
   display: flex;
@@ -114,7 +125,7 @@ export const AddItemsWrapper = styled.div`
     color: ${(props) => props.theme['gray-900']};
 
     text-align: center;
-    max-width: 25px;
+    max-width: 0.875rem;
     background transparent;
 
     &:focus {

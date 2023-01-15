@@ -5,7 +5,7 @@ export const ProductsListContainer = styled.div``
 export const ProductsGrid = styled.ul`
   display: grid;
   grid-template-columns: auto auto auto auto;
-  grid-column-gap: 2rem;
+  grid-column-gap: 1.5rem;
   grid-row-gap: 2.25rem;
 
   padding-top: 3.375rem;

@@ -42,7 +42,10 @@ export function ProductCard({
       <p>{description}</p>
 
       <PurchaseContainer>
-        <strong>{price}</strong>
+        <strong>
+          <span>R$</span>
+          {price.toFixed(2).replace('.', ',')}
+        </strong>
 
         <div>
           <AddItemsWrapper>
