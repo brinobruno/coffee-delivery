@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ProductsListContainer = styled.div``
+export const ProductsListContainer = styled.main``
 
 export const ProductsGrid = styled.ul`
   display: grid;
