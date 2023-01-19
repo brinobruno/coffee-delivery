@@ -30,6 +30,21 @@ export const CheckoutContentsBlockBase = styled.div`
 
 export const DeliveryDetailsBlock = styled(CheckoutContentsBlockBase)`
   margin-bottom: 0.75rem;
+
+  header {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  div span {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  div p {
+    font-size: 0.875rem;
+    line-height: 1rem;
+  }
 `
 
 export const PaymentDetailsBlock = styled(CheckoutContentsBlockBase)``
