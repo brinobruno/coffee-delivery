@@ -12,6 +12,8 @@ import {
   DeliveryDetailsBlock,
   PaymentDetailsBlock,
 } from './styles'
+import { MapPin } from 'phosphor-react'
+import { useTheme } from 'styled-components'
 
 const checkoutFormValidationSchema = zod.object({
   name: zod.string().min(2, 'Inform your name'),
@@ -21,6 +23,8 @@ const checkoutFormValidationSchema = zod.object({
 type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
 
 export function Checkout() {
+  const currentTheme = useTheme()
+
   const { /* register,  watch, */ reset, handleSubmit } =
     useForm<CheckoutFormData>({
       resolver: zodResolver(checkoutFormValidationSchema),
@@ -43,7 +47,16 @@ export function Checkout() {
         <DeliveryDetails>
           <h3>Complete your order</h3>
 
-          <DeliveryDetailsBlock>Delivery</DeliveryDetailsBlock>
+          <DeliveryDetailsBlock>
+            <header>
+              <MapPin size={22} color={currentTheme['yellow-700']} />
+
+              <div>
+                <span>Delivery address</span>
+                <p>Inform the address desired for receiving your order</p>
+              </div>
+            </header>
+          </DeliveryDetailsBlock>
 
           <PaymentDetailsBlock>Payment</PaymentDetailsBlock>
         </DeliveryDetails>
