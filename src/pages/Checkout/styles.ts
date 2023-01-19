@@ -26,10 +26,6 @@ export const CartContents = styled.div`
 export const CheckoutContentsBlockBase = styled.div`
   background-color: ${(props) => props.theme['gray-200']};
   padding: 2.5rem;
-`
-
-export const DeliveryDetailsBlock = styled(CheckoutContentsBlockBase)`
-  margin-bottom: 0.75rem;
 
   header {
     display: flex;
@@ -45,6 +41,10 @@ export const DeliveryDetailsBlock = styled(CheckoutContentsBlockBase)`
     font-size: 0.875rem;
     line-height: 1rem;
   }
+`
+
+export const DeliveryDetailsBlock = styled(CheckoutContentsBlockBase)`
+  margin-bottom: 0.75rem;
 `
 
 export const PaymentDetailsBlock = styled(CheckoutContentsBlockBase)``
