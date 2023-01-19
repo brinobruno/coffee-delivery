@@ -12,7 +12,7 @@ import {
   DeliveryDetailsBlock,
   PaymentDetailsBlock,
 } from './styles'
-import { MapPin } from 'phosphor-react'
+import { CurrencyDollar, MapPin } from 'phosphor-react'
 import { useTheme } from 'styled-components'
 
 const checkoutFormValidationSchema = zod.object({
@@ -58,7 +58,16 @@ export function Checkout() {
             </header>
           </DeliveryDetailsBlock>
 
-          <PaymentDetailsBlock>Payment</PaymentDetailsBlock>
+          <PaymentDetailsBlock>
+            <header>
+              <CurrencyDollar size={22} color={currentTheme['purple-500']} />
+
+              <div>
+                <span>Payment</span>
+                <p>Payment is done at delivery. Choose your payment option</p>
+              </div>
+            </header>
+          </PaymentDetailsBlock>
         </DeliveryDetails>
 
         <CartContents>
