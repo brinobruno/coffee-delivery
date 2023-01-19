@@ -12,9 +12,9 @@ export function ThemeSwitcher() {
     <>
       <ThemeSwitchBase onClick={changeTheme}>
         {isDarkTheme === 'light' ? (
-          <Sun size={24} color={currentTheme['yellow-700']} />
-        ) : (
           <Moon size={24} color={currentTheme['purple-700']} />
+        ) : (
+          <Sun size={24} color={currentTheme['yellow-700']} />
         )}
       </ThemeSwitchBase>
     </>
