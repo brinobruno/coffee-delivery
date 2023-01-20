@@ -63,48 +63,50 @@ export function Checkout() {
               </div>
             </header>
 
-            <DeliveryDetailsLineContainer>
-              <DeliveryInputOneThird>
-                <label>ZIP</label>
-                <DeliveryDetailsInputBase />
-              </DeliveryInputOneThird>
-            </DeliveryDetailsLineContainer>
+            <div>
+              <DeliveryDetailsLineContainer>
+                <DeliveryInputOneThird>
+                  <label>ZIP</label>
+                  <DeliveryDetailsInputBase />
+                </DeliveryInputOneThird>
+              </DeliveryDetailsLineContainer>
 
-            <DeliveryDetailsLineContainer>
-              <DeliveryInputFullWidth>
-                <label>Street</label>
-                <DeliveryDetailsInputBase />
-              </DeliveryInputFullWidth>
-            </DeliveryDetailsLineContainer>
+              <DeliveryDetailsLineContainer>
+                <DeliveryInputFullWidth>
+                  <label>Street</label>
+                  <DeliveryDetailsInputBase />
+                </DeliveryInputFullWidth>
+              </DeliveryDetailsLineContainer>
 
-            <DeliveryDetailsLineContainer>
-              <DeliveryInputOneThird>
-                <label>Number</label>
-                <DeliveryDetailsInputBase />
-              </DeliveryInputOneThird>
+              <DeliveryDetailsLineContainer>
+                <DeliveryInputOneThird>
+                  <label>Number</label>
+                  <DeliveryDetailsInputBase />
+                </DeliveryInputOneThird>
 
-              <DeliveryInputTwoThirds>
-                <label>Complement</label>
-                <DeliveryDetailsInputBase />
-              </DeliveryInputTwoThirds>
-            </DeliveryDetailsLineContainer>
+                <DeliveryInputTwoThirds>
+                  <label>Complement</label>
+                  <DeliveryDetailsInputBase />
+                </DeliveryInputTwoThirds>
+              </DeliveryDetailsLineContainer>
 
-            <DeliveryDetailsLineContainer>
-              <DeliveryInputOneThird>
-                <label>Zone</label>
-                <DeliveryDetailsInputBase />
-              </DeliveryInputOneThird>
+              <DeliveryDetailsLineContainer>
+                <DeliveryInputOneThird>
+                  <label>Zone</label>
+                  <DeliveryDetailsInputBase />
+                </DeliveryInputOneThird>
 
-              <DeliveryInputTwoThirds>
-                <label>City</label>
-                <DeliveryDetailsInputBase />
-              </DeliveryInputTwoThirds>
+                <DeliveryInputTwoThirds>
+                  <label>City</label>
+                  <DeliveryDetailsInputBase />
+                </DeliveryInputTwoThirds>
 
-              <DeliveryInputSmall>
-                <label>UF</label>
-                <DeliveryDetailsInputBase />
-              </DeliveryInputSmall>
-            </DeliveryDetailsLineContainer>
+                <DeliveryInputSmall>
+                  <label>UF</label>
+                  <DeliveryDetailsInputBase />
+                </DeliveryInputSmall>
+              </DeliveryDetailsLineContainer>
+            </div>
           </DeliveryDetailsBlock>
 
           <PaymentDetailsBlock>
