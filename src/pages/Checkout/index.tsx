@@ -15,6 +15,10 @@ import {
   PaymentDetailsBlock,
   DeliveryDetailsInputBase,
   DeliveryInputOneThird,
+  DeliveryInputFullWidth,
+  DeliveryDetailsLineContainer,
+  DeliveryInputTwoThirds,
+  DeliveryInputSmall,
 } from './styles'
 
 const checkoutFormValidationSchema = zod.object({
@@ -59,12 +63,48 @@ export function Checkout() {
               </div>
             </header>
 
-            <div>
+            <DeliveryDetailsLineContainer>
               <DeliveryInputOneThird>
-                <label>CEP</label>
+                <label>ZIP</label>
                 <DeliveryDetailsInputBase />
               </DeliveryInputOneThird>
-            </div>
+            </DeliveryDetailsLineContainer>
+
+            <DeliveryDetailsLineContainer>
+              <DeliveryInputFullWidth>
+                <label>Street</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputFullWidth>
+            </DeliveryDetailsLineContainer>
+
+            <DeliveryDetailsLineContainer>
+              <DeliveryInputOneThird>
+                <label>Number</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputOneThird>
+
+              <DeliveryInputTwoThirds>
+                <label>Complement</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputTwoThirds>
+            </DeliveryDetailsLineContainer>
+
+            <DeliveryDetailsLineContainer>
+              <DeliveryInputOneThird>
+                <label>Zone</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputOneThird>
+
+              <DeliveryInputTwoThirds>
+                <label>City</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputTwoThirds>
+
+              <DeliveryInputSmall>
+                <label>UF</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputSmall>
+            </DeliveryDetailsLineContainer>
           </DeliveryDetailsBlock>
 
           <PaymentDetailsBlock>
