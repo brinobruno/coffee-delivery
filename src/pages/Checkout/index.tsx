@@ -2,7 +2,13 @@ import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTheme } from 'styled-components'
-import { CurrencyDollar, MapPinLine } from 'phosphor-react'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from 'phosphor-react'
 
 import {
   CartContents,
@@ -19,6 +25,7 @@ import {
   DeliveryDetailsLineContainer,
   DeliveryInputTwoThirds,
   DeliveryInputSmall,
+  PaymentDetailOption,
 } from './styles'
 
 const checkoutFormValidationSchema = zod.object({
@@ -63,50 +70,48 @@ export function Checkout() {
               </div>
             </header>
 
-            <div>
-              <DeliveryDetailsLineContainer>
-                <DeliveryInputOneThird>
-                  <label>ZIP</label>
-                  <DeliveryDetailsInputBase />
-                </DeliveryInputOneThird>
-              </DeliveryDetailsLineContainer>
+            <DeliveryDetailsLineContainer>
+              <DeliveryInputOneThird>
+                <label>ZIP</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputOneThird>
+            </DeliveryDetailsLineContainer>
 
-              <DeliveryDetailsLineContainer>
-                <DeliveryInputFullWidth>
-                  <label>Street</label>
-                  <DeliveryDetailsInputBase />
-                </DeliveryInputFullWidth>
-              </DeliveryDetailsLineContainer>
+            <DeliveryDetailsLineContainer>
+              <DeliveryInputFullWidth>
+                <label>Street</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputFullWidth>
+            </DeliveryDetailsLineContainer>
 
-              <DeliveryDetailsLineContainer>
-                <DeliveryInputOneThird>
-                  <label>Number</label>
-                  <DeliveryDetailsInputBase />
-                </DeliveryInputOneThird>
+            <DeliveryDetailsLineContainer>
+              <DeliveryInputOneThird>
+                <label>Number</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputOneThird>
 
-                <DeliveryInputTwoThirds>
-                  <label>Complement</label>
-                  <DeliveryDetailsInputBase />
-                </DeliveryInputTwoThirds>
-              </DeliveryDetailsLineContainer>
+              <DeliveryInputTwoThirds>
+                <label>Complement</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputTwoThirds>
+            </DeliveryDetailsLineContainer>
 
-              <DeliveryDetailsLineContainer>
-                <DeliveryInputOneThird>
-                  <label>Zone</label>
-                  <DeliveryDetailsInputBase />
-                </DeliveryInputOneThird>
+            <DeliveryDetailsLineContainer>
+              <DeliveryInputOneThird>
+                <label>Zone</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputOneThird>
 
-                <DeliveryInputTwoThirds>
-                  <label>City</label>
-                  <DeliveryDetailsInputBase />
-                </DeliveryInputTwoThirds>
+              <DeliveryInputTwoThirds>
+                <label>City</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputTwoThirds>
 
-                <DeliveryInputSmall>
-                  <label>UF</label>
-                  <DeliveryDetailsInputBase />
-                </DeliveryInputSmall>
-              </DeliveryDetailsLineContainer>
-            </div>
+              <DeliveryInputSmall>
+                <label>UF</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputSmall>
+            </DeliveryDetailsLineContainer>
           </DeliveryDetailsBlock>
 
           <PaymentDetailsBlock>
@@ -118,6 +123,23 @@ export function Checkout() {
                 <p>Payment is done at delivery. Choose your payment option</p>
               </div>
             </header>
+
+            <div>
+              <PaymentDetailOption>
+                <CreditCard size={16} color={currentTheme['purple-500']} />
+                <span>Credit card</span>
+              </PaymentDetailOption>
+
+              <PaymentDetailOption>
+                <Bank size={16} color={currentTheme['purple-500']} />
+                <span>Debit card</span>
+              </PaymentDetailOption>
+
+              <PaymentDetailOption>
+                <Money size={16} color={currentTheme['purple-500']} />
+                <span>Cash</span>
+              </PaymentDetailOption>
+            </div>
           </PaymentDetailsBlock>
         </DeliveryDetails>
 
