@@ -30,6 +30,7 @@ export const CheckoutContentsBlockBase = styled.div`
   header {
     display: flex;
     gap: 0.5rem;
+    margin-bottom: 2rem;
   }
 
   div span {
