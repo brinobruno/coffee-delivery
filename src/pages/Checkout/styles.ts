@@ -51,6 +51,58 @@ export const PaymentDetailsBlock = styled(CheckoutContentsBlockBase)``
 
 export const SelectedProductsBlock = styled(CheckoutContentsBlockBase)``
 
+export const DeliveryDetailsInputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  background-color: ${(props) => props.theme['gray-300']};
+  color: ${(props) => props.theme['gray-600']};
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 1px ${(props) => props.theme['gray-400']};
+
+  &:focus-within {
+    box-shadow: 0 0 0 1.25px ${(props) => props.theme['yellow-700']};
+  }
+`
+
+export const DeliveryDetailsInputBase = styled.input`
+  color: ${(props) => props.theme['gray-600']};
+  background: transparent;
+  overflow: hidden;
+
+  &::placeholder {
+    color: ${(props) => props.theme['gray-600']};
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+`
+
+export const DeliveryInputOneThird = styled(DeliveryDetailsInputWrapper)`
+  max-width: 33%;
+`
+
+export const DeliveryInputTwoThirds = styled(DeliveryDetailsInputWrapper)`
+  max-width: 66%;
+`
+
+export const DeliveryInputFullWidth = styled(DeliveryDetailsInputWrapper)`
+  max-width: 50%;
+`
+
+export const DeliveryInputHalfWidth = styled(DeliveryDetailsInputWrapper)`
+  max-width: 50%;
+`
+
+export const DeliveryInputSmall = styled(DeliveryDetailsInputWrapper)`
+  max-width: 11%;
+`
+
 export const ConfirmOrderButton = styled.button`
   width: 100%;
   padding: 0.75rem 0;
