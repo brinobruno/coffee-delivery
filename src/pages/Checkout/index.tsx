@@ -13,6 +13,8 @@ import {
   SelectedProductsBlock,
   DeliveryDetailsBlock,
   PaymentDetailsBlock,
+  DeliveryDetailsInputBase,
+  DeliveryInputOneThird,
 } from './styles'
 
 const checkoutFormValidationSchema = zod.object({
@@ -56,6 +58,13 @@ export function Checkout() {
                 <p>Inform the address desired for receiving your order</p>
               </div>
             </header>
+
+            <div>
+              <DeliveryInputOneThird>
+                <label>CEP</label>
+                <DeliveryDetailsInputBase />
+              </DeliveryInputOneThird>
+            </div>
           </DeliveryDetailsBlock>
 
           <PaymentDetailsBlock>
