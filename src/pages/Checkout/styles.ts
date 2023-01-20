@@ -57,7 +57,7 @@ export const ConfirmOrderButton = styled.button`
 
   color: ${(props) => props.theme['gray-100']};
   background-color: ${(props) => props.theme['yellow-500']};
-  transition: 0.3s ease-in-out;
+  transition: 0.3s background-color ease-in-out;
 
   font-size: 0.875rem;
   line-height: 22.4px;
