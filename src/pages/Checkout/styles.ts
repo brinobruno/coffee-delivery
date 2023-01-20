@@ -61,6 +61,7 @@ export const DeliveryDetailsLineContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 `
 
 export const DeliveryDetailsInputWrapper = styled.div`
@@ -83,6 +84,10 @@ export const DeliveryDetailsInputWrapper = styled.div`
 
 export const DeliveryDetailsInputBase = styled.input`
   color: ${(props) => props.theme['gray-600']};
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+
+  width: 100%;
   background: transparent;
   overflow: hidden;
 
@@ -97,10 +102,12 @@ export const DeliveryDetailsInputBase = styled.input`
 
 export const DeliveryInputOneThird = styled(DeliveryDetailsInputWrapper)`
   max-width: 33%;
+  width: 100%;
 `
 
 export const DeliveryInputTwoThirds = styled(DeliveryDetailsInputWrapper)`
   max-width: 66%;
+  width: 100%;
 `
 
 export const DeliveryInputFullWidth = styled(DeliveryDetailsInputWrapper)`
@@ -110,10 +117,12 @@ export const DeliveryInputFullWidth = styled(DeliveryDetailsInputWrapper)`
 
 export const DeliveryInputHalfWidth = styled(DeliveryDetailsInputWrapper)`
   max-width: 50%;
+  width: 100%;
 `
 
 export const DeliveryInputSmall = styled(DeliveryDetailsInputWrapper)`
-  max-width: 11%;
+  max-width: 13%;
+  width: 100%;
 `
 
 export const ConfirmOrderButton = styled.button`
