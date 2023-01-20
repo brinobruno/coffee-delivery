@@ -78,6 +78,7 @@ export const DeliveryDetailsInputWrapper = styled.div`
   box-shadow: 0 0 0 1px ${(props) => props.theme['gray-400']};
 
   &:focus-within {
+    color: ${(props) => props.theme['yellow-700']};
     box-shadow: 0 0 0 1.25px ${(props) => props.theme['yellow-700']};
   }
 `
@@ -96,6 +97,7 @@ export const DeliveryDetailsInputBase = styled.input`
   }
 
   &:focus {
+    color: ${(props) => props.theme['yellow-700']};
     box-shadow: none;
   }
 `
