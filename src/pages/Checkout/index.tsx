@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTheme } from 'styled-components'
+import { CurrencyDollar, MapPin } from 'phosphor-react'
 
 import {
   CartContents,
@@ -12,8 +14,6 @@ import {
   DeliveryDetailsBlock,
   PaymentDetailsBlock,
 } from './styles'
-import { CurrencyDollar, MapPin } from 'phosphor-react'
-import { useTheme } from 'styled-components'
 
 const checkoutFormValidationSchema = zod.object({
   name: zod.string().min(2, 'Inform your name'),
