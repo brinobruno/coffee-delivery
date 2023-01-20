@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTheme } from 'styled-components'
-import { CurrencyDollar, MapPin } from 'phosphor-react'
+import { CurrencyDollar, MapPinLine } from 'phosphor-react'
 
 import {
   CartContents,
@@ -49,7 +49,7 @@ export function Checkout() {
 
           <DeliveryDetailsBlock>
             <header>
-              <MapPin size={22} color={currentTheme['yellow-700']} />
+              <MapPinLine size={22} color={currentTheme['yellow-700']} />
 
               <div>
                 <span>Delivery address</span>
