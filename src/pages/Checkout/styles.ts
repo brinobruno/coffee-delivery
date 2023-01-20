@@ -31,16 +31,16 @@ export const CheckoutContentsBlockBase = styled.div`
     display: flex;
     gap: 0.5rem;
     margin-bottom: 2rem;
-  }
 
-  div span {
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
+    div span {
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
 
-  div p {
-    font-size: 0.875rem;
-    line-height: 1rem;
+    div p {
+      font-size: 0.875rem;
+      line-height: 1rem;
+    }
   }
 `
 
@@ -52,7 +52,34 @@ export const DeliveryDetailsBlock = styled(CheckoutContentsBlockBase)`
   margin-bottom: 0.75rem;
 `
 
-export const PaymentDetailsBlock = styled(CheckoutContentsBlockBase)``
+export const PaymentDetailsBlock = styled(CheckoutContentsBlockBase)`
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+`
+
+export const PaymentDetailOption = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+
+  background-color: ${(props) => props.theme['gray-400']};
+  color: ${(props) => props.theme['gray-700']};
+
+  border-radius: 6px;
+  padding: 1rem;
+  cursor: pointer;
+
+  span {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    line-height: 15px;
+  }
+`
 
 export const SelectedProductsBlock = styled(CheckoutContentsBlockBase)``
 
