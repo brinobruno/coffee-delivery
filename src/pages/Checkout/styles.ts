@@ -45,12 +45,23 @@ export const CheckoutContentsBlockBase = styled.div`
 `
 
 export const DeliveryDetailsBlock = styled(CheckoutContentsBlockBase)`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
   margin-bottom: 0.75rem;
 `
 
 export const PaymentDetailsBlock = styled(CheckoutContentsBlockBase)``
 
 export const SelectedProductsBlock = styled(CheckoutContentsBlockBase)``
+
+export const DeliveryDetailsLineContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
 
 export const DeliveryDetailsInputWrapper = styled.div`
   display: flex;
@@ -93,7 +104,8 @@ export const DeliveryInputTwoThirds = styled(DeliveryDetailsInputWrapper)`
 `
 
 export const DeliveryInputFullWidth = styled(DeliveryDetailsInputWrapper)`
-  max-width: 50%;
+  max-width: 100%;
+  width: 100%;
 `
 
 export const DeliveryInputHalfWidth = styled(DeliveryDetailsInputWrapper)`
