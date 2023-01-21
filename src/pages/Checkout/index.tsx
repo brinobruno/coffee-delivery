@@ -28,6 +28,8 @@ import {
   PaymentDetailOption,
   PaymentDetailLabel,
   PaymentDetailRadio,
+  CartContentsList,
+  CartTotalSum,
 } from './styles'
 import React, { useState } from 'react'
 
@@ -181,7 +183,13 @@ export function Checkout() {
         <CartContents>
           <h3>Selected coffees</h3>
           <SelectedProductsBlock>
-            <ConfirmOrderButton type="submit">Confirm order</ConfirmOrderButton>
+            <CartContentsList>a</CartContentsList>
+
+            <CartTotalSum>
+              <ConfirmOrderButton type="submit">
+                Confirm order
+              </ConfirmOrderButton>
+            </CartTotalSum>
           </SelectedProductsBlock>
         </CartContents>
       </FormContainer>
