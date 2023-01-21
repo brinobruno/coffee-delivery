@@ -179,7 +179,7 @@ export const DeliveryInputHalfWidth = styled(DeliveryDetailsInputWrapper)`
 `
 
 export const DeliveryInputSmall = styled(DeliveryDetailsInputWrapper)`
-  max-width: 62px;
+  max-width: 80px;
   width: 100%;
 `
 
