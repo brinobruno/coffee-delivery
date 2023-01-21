@@ -26,7 +26,10 @@ import {
   DeliveryInputTwoThirds,
   DeliveryInputSmall,
   PaymentDetailOption,
+  PaymentDetailLabel,
+  PaymentDetailRadio,
 } from './styles'
+import React, { useState } from 'react'
 
 const checkoutFormValidationSchema = zod.object({
   name: zod.string().min(2, 'Inform your name'),
@@ -37,6 +40,14 @@ type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
 
 export function Checkout() {
   const currentTheme = useTheme()
+
+  const [paymentMethod, setPaymentMethod] = useState('')
+
+  const handleChangePaymentMethod = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setPaymentMethod(event.target.value)
+  }
 
   const { /* register,  watch, */ reset, handleSubmit } =
     useForm<CheckoutFormData>({
@@ -125,19 +136,43 @@ export function Checkout() {
             </header>
 
             <div>
-              <PaymentDetailOption>
-                <CreditCard size={16} color={currentTheme['purple-500']} />
-                <span>Credit card</span>
+              <PaymentDetailOption checked={paymentMethod === 'credit'}>
+                <PaymentDetailLabel>
+                  <CreditCard size={16} color={currentTheme['purple-500']} />
+                  <span>Credit card</span>
+                  <PaymentDetailRadio
+                    type="radio"
+                    value="credit"
+                    checked={paymentMethod === 'credit'}
+                    onChange={handleChangePaymentMethod}
+                  />
+                </PaymentDetailLabel>
               </PaymentDetailOption>
 
-              <PaymentDetailOption>
-                <Bank size={16} color={currentTheme['purple-500']} />
-                <span>Debit card</span>
+              <PaymentDetailOption checked={paymentMethod === 'debit'}>
+                <PaymentDetailLabel>
+                  <Bank size={16} color={currentTheme['purple-500']} />
+                  <span>Debit card</span>
+                  <PaymentDetailRadio
+                    type="radio"
+                    value="debit"
+                    checked={paymentMethod === 'debit'}
+                    onChange={handleChangePaymentMethod}
+                  />
+                </PaymentDetailLabel>
               </PaymentDetailOption>
 
-              <PaymentDetailOption>
-                <Money size={16} color={currentTheme['purple-500']} />
-                <span>Cash</span>
+              <PaymentDetailOption checked={paymentMethod === 'cash'}>
+                <PaymentDetailLabel>
+                  <Money size={16} color={currentTheme['purple-500']} />
+                  <span>Cash</span>
+                  <PaymentDetailRadio
+                    type="radio"
+                    value="cash"
+                    checked={paymentMethod === 'cash'}
+                    onChange={handleChangePaymentMethod}
+                  />
+                </PaymentDetailLabel>
               </PaymentDetailOption>
             </div>
           </PaymentDetailsBlock>
