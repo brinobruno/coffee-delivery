@@ -102,7 +102,7 @@ export function Checkout() {
               </DeliveryInputOneThird>
 
               <DeliveryInputTwoThirds>
-                <label>Complement</label>
+                <label>Reference</label>
                 <DeliveryDetailsInputBase />
               </DeliveryInputTwoThirds>
             </DeliveryDetailsLineContainer>
