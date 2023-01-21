@@ -61,24 +61,53 @@ export const PaymentDetailsBlock = styled(CheckoutContentsBlockBase)`
   }
 `
 
-export const PaymentDetailOption = styled.div`
-  width: 100%;
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
+interface PaymentOptionProps {
+  checked: boolean
+}
 
-  background-color: ${(props) => props.theme['gray-400']};
+export const PaymentDetailOption = styled.div<PaymentOptionProps>`
+  position: relative;
+  width: 100%;
+
   color: ${(props) => props.theme['gray-700']};
+  background-color: ${(props) =>
+    props.checked === true
+      ? `${props.theme['purple-300']}`
+      : `${props.theme['gray-400']}`};
+  box-shadow: ${(props) =>
+    props.checked === true
+      ? `0 0 0 1px ${props.theme['purple-500']} inset`
+      : ''};
 
   border-radius: 6px;
   padding: 1rem;
-  cursor: pointer;
 
   span {
     text-transform: uppercase;
     font-size: 0.75rem;
     line-height: 15px;
   }
+`
+
+export const PaymentDetailLabel = styled.label`
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: flex-start;
+`
+
+export const PaymentDetailRadio = styled.input`
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  opacity: 0;
+  padding: 0px;
+  position: absolute;
+  z-index: 1;
+  border: none;
+  cursor: pointer;
 `
 
 export const SelectedProductsBlock = styled(CheckoutContentsBlockBase)``
