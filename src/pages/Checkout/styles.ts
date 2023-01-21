@@ -110,8 +110,6 @@ export const PaymentDetailRadio = styled.input`
   cursor: pointer;
 `
 
-export const SelectedProductsBlock = styled(CheckoutContentsBlockBase)``
-
 export const DeliveryDetailsLineContainer = styled.div`
   width: 100%;
   display: flex;
@@ -182,6 +180,14 @@ export const DeliveryInputSmall = styled(DeliveryDetailsInputWrapper)`
   max-width: 80px;
   width: 100%;
 `
+
+export const SelectedProductsBlock = styled(CheckoutContentsBlockBase)`
+  border-radius: 6px 44px;
+`
+
+export const CartContentsList = styled.div``
+
+export const CartTotalSum = styled.div``
 
 export const ConfirmOrderButton = styled.button`
   width: 100%;
