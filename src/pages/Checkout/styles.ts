@@ -185,12 +185,66 @@ export const SelectedProductsBlock = styled(CheckoutContentsBlockBase)`
   border-radius: 6px 44px;
 `
 
-export const CartContentsList = styled.div``
+export const CartContentsList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`
+
+export const CartContentsItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 2rem;
+  border-bottom: 1px solid ${(props) => props.theme['gray-400']};
+
+  > div {
+    display: flex;
+    gap: 1.25rem;
+  }
+`
+
+export const CartContentsMiddle = styled.div`
+  div > div {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  header {
+    margin-bottom: 0.5rem;
+  }
+
+  img {
+    max-width: 4rem;
+    width: 100%;
+  }
+
+  strong {
+    color: ${(props) => props.theme['gray-700']};
+  }
+`
+
+export const RemoveItemButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  background-color: ${(props) => props.theme['gray-400']};
+  color: ${(props) => props.theme['gray-700']};
+  font-size: 0.75rem;
+  line-height: 19px;
+  text-transform: uppercase;
+
+  border: none;
+  padding: 0.4rem 0.5rem;
+`
 
 export const CartTotalSum = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  margin-top: 1.5rem;
 
   div {
     display: flex;
