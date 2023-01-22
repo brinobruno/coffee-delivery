@@ -187,11 +187,38 @@ export const SelectedProductsBlock = styled(CheckoutContentsBlockBase)`
 
 export const CartContentsList = styled.div``
 
-export const CartTotalSum = styled.div``
+export const CartTotalSum = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-size: 0.875rem;
+      line-height: 18px;
+    }
+
+    em {
+      font-style: normal;
+      font-size: 1rem;
+      line-height: 21px;
+    }
+
+    strong {
+      color: ${(props) => props.theme['gray-800']};
+      font-size: 1.25rem;
+      line-height: 26px;
+    }
+  }
+`
 
 export const ConfirmOrderButton = styled.button`
   width: 100%;
   padding: 0.75rem 0;
+  margin-top: 1rem;
 
   color: ${(props) => props.theme['gray-100']};
   background-color: ${(props) => props.theme['yellow-500']};
