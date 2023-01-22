@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -31,7 +32,6 @@ import {
   CartContentsList,
   CartTotalSum,
 } from './styles'
-import React, { useState } from 'react'
 
 const checkoutFormValidationSchema = zod.object({
   name: zod.string().min(2, 'Inform your name'),
