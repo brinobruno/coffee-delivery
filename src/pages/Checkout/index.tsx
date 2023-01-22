@@ -186,6 +186,21 @@ export function Checkout() {
             <CartContentsList>a</CartContentsList>
 
             <CartTotalSum>
+              <div>
+                <span>Items total</span>
+                <em>R$ 29,70</em>
+              </div>
+
+              <div>
+                <span>Delivery</span>
+                <em>R$ 3,50</em>
+              </div>
+
+              <div>
+                <strong>Total</strong>
+                <strong>R$ 33,20</strong>
+              </div>
+
               <ConfirmOrderButton type="submit">
                 Confirm order
               </ConfirmOrderButton>
