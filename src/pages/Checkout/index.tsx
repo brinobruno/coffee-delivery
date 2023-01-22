@@ -244,11 +244,11 @@ export function Checkout() {
               <CartContentsItem>
                 <CartContentsMiddle>
                   <img
-                    src={PRODUCTS_REPOSITORY[0].picture}
-                    alt={PRODUCTS_REPOSITORY[0].title}
+                    src={PRODUCTS_REPOSITORY[6].picture}
+                    alt={PRODUCTS_REPOSITORY[6].title}
                   />
                   <div>
-                    <header>{PRODUCTS_REPOSITORY[0].title}</header>
+                    <header>{PRODUCTS_REPOSITORY[6].title}</header>
 
                     <div>
                       <AddItemsWrapper>
@@ -286,7 +286,7 @@ export function Checkout() {
 
                 <strong>
                   R$
-                  {PRODUCTS_REPOSITORY[0].price.toFixed(2).replace('.', ',')}
+                  {PRODUCTS_REPOSITORY[6].price.toFixed(2).replace('.', ',')}
                 </strong>
               </CartContentsItem>
             </CartContentsList>
