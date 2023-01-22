@@ -236,6 +236,7 @@ export const RemoveItemButton = styled.button`
   text-transform: uppercase;
 
   border: none;
+  border-radius: 6px;
   padding: 0.4rem 0.5rem;
 `
 
