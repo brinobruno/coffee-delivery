@@ -8,7 +8,10 @@ import {
   CreditCard,
   CurrencyDollar,
   MapPinLine,
+  Minus,
   Money,
+  Plus,
+  Trash,
 } from 'phosphor-react'
 
 import {
@@ -31,7 +34,14 @@ import {
   PaymentDetailRadio,
   CartContentsList,
   CartTotalSum,
+  CartContentsItem,
+  CartContentsMiddle,
+  RemoveItemButton,
 } from './styles'
+
+import { AddItemsWrapper } from './../../components/ProductCard/styles'
+
+import { PRODUCTS_REPOSITORY } from '../../repository/products'
 
 const checkoutFormValidationSchema = zod.object({
   name: zod.string().min(2, 'Inform your name'),
@@ -183,7 +193,105 @@ export function Checkout() {
         <CartContents>
           <h3>Selected coffees</h3>
           <SelectedProductsBlock>
-            <CartContentsList>a</CartContentsList>
+            <CartContentsList>
+              <CartContentsItem>
+                <CartContentsMiddle>
+                  <img
+                    src={PRODUCTS_REPOSITORY[0].picture}
+                    alt={PRODUCTS_REPOSITORY[0].title}
+                  />
+                  <div>
+                    <header>{PRODUCTS_REPOSITORY[0].title}</header>
+
+                    <div>
+                      <AddItemsWrapper>
+                        <Minus
+                          size={14}
+                          color={currentTheme['purple-700']}
+                          cursor="pointer"
+                          alt="Remove 1 more"
+                        />
+                        <input
+                          type="text"
+                          inputMode="numeric"
+                          placeholder="1"
+                        />
+                        <Plus
+                          size={14}
+                          color={currentTheme['purple-700']}
+                          cursor="pointer"
+                          alt="Add 1 more"
+                        />
+                      </AddItemsWrapper>
+
+                      <RemoveItemButton>
+                        <Trash
+                          size={14}
+                          color={currentTheme['purple-700']}
+                          cursor="pointer"
+                          alt="Remove 1 more"
+                        />
+                        Remove
+                      </RemoveItemButton>
+                    </div>
+                  </div>
+                </CartContentsMiddle>
+
+                <strong>
+                  R$
+                  {PRODUCTS_REPOSITORY[0].price.toFixed(2).replace('.', ',')}
+                </strong>
+              </CartContentsItem>
+
+              <CartContentsItem>
+                <CartContentsMiddle>
+                  <img
+                    src={PRODUCTS_REPOSITORY[0].picture}
+                    alt={PRODUCTS_REPOSITORY[0].title}
+                  />
+                  <div>
+                    <header>{PRODUCTS_REPOSITORY[0].title}</header>
+
+                    <div>
+                      <AddItemsWrapper>
+                        <Minus
+                          size={14}
+                          color={currentTheme['purple-700']}
+                          cursor="pointer"
+                          alt="Remove 1 more"
+                        />
+                        <input
+                          type="text"
+                          inputMode="numeric"
+                          placeholder="1"
+                        />
+                        <Plus
+                          size={14}
+                          color={currentTheme['purple-700']}
+                          cursor="pointer"
+                          alt="Add 1 more"
+                        />
+                      </AddItemsWrapper>
+
+                      <RemoveItemButton>
+                        <Trash
+                          size={14}
+                          color={currentTheme['purple-700']}
+                          cursor="pointer"
+                          alt="Remove 1 more"
+                        />
+                        Remove
+                      </RemoveItemButton>
+                    </div>
+                  </div>
+                </CartContentsMiddle>
+
+                <strong>
+                  R$
+                  {PRODUCTS_REPOSITORY[0].price.toFixed(2).replace('.', ',')}
+                </strong>
+              </CartContentsItem>
+            </CartContentsList>
 
             <CartTotalSum>
               <div>
