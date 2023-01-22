@@ -14,6 +14,7 @@ import {
   Trash,
 } from 'phosphor-react'
 
+import { PRODUCTS_REPOSITORY } from '../../repository/products'
 import {
   CartContents,
   ConfirmOrderButton,
@@ -38,10 +39,7 @@ import {
   CartContentsMiddle,
   RemoveItemButton,
 } from './styles'
-
 import { AddItemsWrapper } from './../../components/ProductCard/styles'
-
-import { PRODUCTS_REPOSITORY } from '../../repository/products'
 
 const checkoutFormValidationSchema = zod.object({
   name: zod.string().min(2, 'Inform your name'),
