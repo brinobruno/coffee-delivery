@@ -10,6 +10,7 @@ import {
 } from './styles'
 
 interface IProductCard {
+  id?: number
   picture: string
   tags: string[]
   title: string

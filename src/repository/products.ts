@@ -17,6 +17,7 @@ import { ProductsRepositoryData } from '../components/ProductCard'
 
 export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
   {
+    id: 0,
     picture: TraditionalEspressoPicture,
     tags: ['Traditional'],
     title: 'Traditional Espresso',
@@ -24,6 +25,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 9.9,
   },
   {
+    id: 1,
     picture: AmericanoPicture,
     tags: ['Traditional'],
     title: 'Americano Espresso',
@@ -31,6 +33,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 8,
   },
   {
+    id: 2,
     picture: CreamyEspressoPicture,
     tags: ['Traditional'],
     title: 'Creamy Expresso',
@@ -38,6 +41,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 9.9,
   },
   {
+    id: 3,
     picture: IcedEspressoPicture,
     tags: ['Traditional', 'Iced'],
     title: 'Iced Espresso',
@@ -45,6 +49,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 9,
   },
   {
+    id: 4,
     picture: WithMilkPicture,
     tags: ['Traditional', 'With Milk'],
     title: 'Coffee with Milk',
@@ -52,6 +57,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 10.9,
   },
   {
+    id: 5,
     picture: LattePicture,
     tags: ['Traditional', 'With Milk'],
     title: 'Latte',
@@ -59,6 +65,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 11.9,
   },
   {
+    id: 6,
     picture: CapuccinoPicture,
     tags: ['Traditional', 'With Milk'],
     title: 'Capuccino',
@@ -67,6 +74,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 11.9,
   },
   {
+    id: 7,
     picture: MacchiatoPicture,
     tags: ['Traditional', 'With Milk'],
     title: 'Macchiato',
@@ -74,6 +82,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 9.9,
   },
   {
+    id: 8,
     picture: MocaccinoPicture,
     tags: ['Traditional', 'With Milk'],
     title: 'Mocaccino',
@@ -81,6 +90,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 9.9,
   },
   {
+    id: 9,
     picture: HotChocolatePicture,
     tags: ['Especial', 'With milk'],
     title: 'Hot chocolate',
@@ -89,6 +99,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 10,
   },
   {
+    id: 10,
     picture: CubanoPicture,
     tags: ['Especial', 'Alcoholic', 'iced'],
     title: 'Cubano',
@@ -96,6 +107,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 12.9,
   },
   {
+    id: 11,
     picture: HawaiianPicture,
     tags: ['Especial'],
     title: 'Hawaiian',
@@ -103,6 +115,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 10.9,
   },
   {
+    id: 12,
     picture: ArabicPicture,
     tags: ['Especial'],
     title: 'Arabic',
@@ -110,6 +123,7 @@ export const PRODUCTS_REPOSITORY: ProductsRepositoryData = [
     price: 11.9,
   },
   {
+    id: 13,
     picture: IrishPicture,
     tags: ['Especial', 'Alcoholic'],
     title: 'Irish',
