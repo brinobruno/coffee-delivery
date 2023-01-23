@@ -45,6 +45,7 @@ export const CheckoutSuccessWrapper = styled.div`
 
   @media (max-width: 1000px) {
     flex-direction: column;
+    align-items: flex-start;
     gap: 3rem;
   }
 `
