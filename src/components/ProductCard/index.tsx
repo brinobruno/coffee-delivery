@@ -69,6 +69,7 @@ export function ProductCard({
           <CartWrapper>
             <ShoppingCart
               size={22}
+              weight="fill"
               color={currentTheme['gray-100']}
               cursor="pointer"
               alt="Cart"

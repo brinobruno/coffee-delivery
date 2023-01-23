@@ -27,14 +27,22 @@ export function Header() {
 
         <NavLink to="/" title="Home">
           <MapWrapper>
-            <MapPin size={24} color={currentTheme['purple-700']} />
+            <MapPin
+              size={24}
+              weight="fill"
+              color={currentTheme['purple-700']}
+            />
             <span>São Paulo, SP</span>
           </MapWrapper>
         </NavLink>
 
         <NavLink to="/checkout" title="Checkout">
           <CartWrapper>
-            <ShoppingCart size={24} color={currentTheme['yellow-700']} />
+            <ShoppingCart
+              size={24}
+              weight="fill"
+              color={currentTheme['yellow-700']}
+            />
           </CartWrapper>
         </NavLink>
       </nav>
