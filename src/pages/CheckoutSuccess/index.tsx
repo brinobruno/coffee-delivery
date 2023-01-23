@@ -2,10 +2,11 @@ import {
   CheckoutSuccessContainer,
   CheckoutSuccessWrapper,
   SuccessDetails,
+  SuccessDetailsItem,
 } from './styles'
 
 import SuccessIllustration from './../../assets/order-success-illustration.svg'
-import { MapPin } from 'phosphor-react'
+import { Clock, CurrencyDollar, MapPin } from 'phosphor-react'
 import { useTheme } from 'styled-components'
 
 export function CheckoutSuccess() {
@@ -19,17 +20,60 @@ export function CheckoutSuccess() {
           <span>Now just wait until your coffee arrives to you</span>
 
           <SuccessDetails>
-            <li>
+            <SuccessDetailsItem backgroundColor={currentTheme['purple-500']}>
               <figure>
-                <MapPin size={16} color={currentTheme['gray-100']} />
+                <MapPin
+                  weight="fill"
+                  size={16}
+                  color={currentTheme['gray-100']}
+                />
               </figure>
 
               <div>
                 <span>
-                  Delivery at <strong>address</strong> São Paulo, SP
+                  Delivery to
+                  <strong> John Daniel Martinelli Street, 102</strong>
+                  <br />
+                  Neighborhood - São Paulo, SP
                 </span>
               </div>
-            </li>
+            </SuccessDetailsItem>
+
+            <SuccessDetailsItem backgroundColor={currentTheme['yellow-500']}>
+              <figure>
+                <Clock
+                  weight="fill"
+                  size={16}
+                  color={currentTheme['gray-100']}
+                />
+              </figure>
+
+              <div>
+                <span>
+                  Expected delivery time
+                  <br />
+                  <strong>20 min - 30 min</strong>
+                </span>
+              </div>
+            </SuccessDetailsItem>
+
+            <SuccessDetailsItem backgroundColor={currentTheme['yellow-700']}>
+              <figure>
+                <CurrencyDollar
+                  weight="fill"
+                  size={16}
+                  color={currentTheme['gray-100']}
+                />
+              </figure>
+
+              <div>
+                <span>
+                  Payment on delivery
+                  <br />
+                  <strong>Credit Card</strong>
+                </span>
+              </div>
+            </SuccessDetailsItem>
           </SuccessDetails>
         </div>
 
