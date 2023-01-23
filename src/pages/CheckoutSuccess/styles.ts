@@ -21,14 +21,16 @@ export const CheckoutSuccessContainer = styled.section`
 export const CheckoutSuccessWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 1rem;
 
   div img {
     max-width: 30.75rem;
+    transform: translateY(1rem);
 
     @media (max-width: 768px) {
       max-width: 100%;
+      transform: none;
     }
   }
 
