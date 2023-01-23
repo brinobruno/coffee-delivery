@@ -7,6 +7,10 @@ export const HeaderContainer = styled.header`
 
   width: 100%;
   height: 6.5rem;
+
+  nav *:focus {
+    box-shadow: none;
+  }
 `
 
 const BaseWrapper = styled.div`
