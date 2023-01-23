@@ -4,6 +4,10 @@ export const CheckoutSuccessContainer = styled.section`
   min-height: calc(100vh - 6.5rem);
   padding-top: 5rem;
 
+  @media (max-width: 768px) {
+    padding-top: 2.25rem;
+  }
+
   h2 {
     color: ${(props) => props.theme['yellow-700']};
   }
@@ -22,6 +26,24 @@ export const CheckoutSuccessWrapper = styled.div`
 
   div img {
     max-width: 30.75rem;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+
+  div:first-child {
+    max-width: 526px;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    gap: 3rem;
   }
 `
 
@@ -30,14 +52,32 @@ export const SuccessDetails = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
   padding: 2.5rem;
   margin-top: 2.5rem;
 
+  background: ${(props) => props.theme['gray-100']};
+  background-clip: padding-box;
+  border: solid 1px transparent;
   border-radius: 6px 36px;
-  border: 1px solid;
-  border-image-slice: 1;
-  border-width: 1px;
-  border-image-source: linear-gradient(to left, #8047f8, #dbac2c);
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      to left,
+      ${(props) => props.theme['purple-500']},
+      ${(props) => props.theme['yellow-500']}
+    );
+  }
 
   li {
     display: flex;
@@ -48,8 +88,10 @@ export const SuccessDetails = styled.ul`
       padding: 0.5rem;
       background-color: ${(props) => props.theme['purple-500']};
       clip-path: circle();
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 `
-
-export const DetailItemCircle = styled.div``
