@@ -4,7 +4,7 @@ import { MapPin, ShoppingCart } from 'phosphor-react'
 
 import { useThemeContext } from '../../contexts/ThemeContext'
 import { ThemeSwitcher } from './components/ThemeSwitcher'
-import { CartWrapper, HeaderContainer, MapWrapper } from './styles'
+import { CartCounter, CartWrapper, HeaderContainer, MapWrapper } from './styles'
 
 import logoLight from './../../assets/logo-light.svg'
 import logoDark from './../../assets/logo-dark.svg'
@@ -43,6 +43,8 @@ export function Header() {
               weight="fill"
               color={currentTheme['yellow-700']}
             />
+
+            <CartCounter>7</CartCounter>
           </CartWrapper>
         </NavLink>
       </nav>

@@ -34,9 +34,30 @@ export const MapWrapper = styled(BaseWrapper)`
 `
 
 export const CartWrapper = styled(BaseWrapper)`
+  position: relative;
   background: ${(props) => props.theme['yellow-300']};
 
   span {
     color: ${(props) => props.theme['yellow-700']};
   }
+`
+
+export const CartCounter = styled.div`
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: ${(props) => props.theme['gray-100']};
+    background: ${(props) => props.theme['yellow-700']};
+    padding: 0.5rem;
+    clip-path: circle();
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 0.5rem;
+    letter-spacing -0.06em;
 `
