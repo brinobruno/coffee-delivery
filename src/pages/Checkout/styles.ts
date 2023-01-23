@@ -10,6 +10,10 @@ export const FormContainer = styled.form`
   justify-content: space-between;
   gap: 2rem;
 
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
+
   h3 {
     margin-bottom: 1rem;
   }
@@ -17,15 +21,27 @@ export const FormContainer = styled.form`
 
 export const DeliveryDetails = styled.div`
   width: 57%;
+
+  @media (max-width: 1100px) {
+    width: 100%;
+  }
 `
 
 export const CartContents = styled.div`
   width: 40%;
+
+  @media (max-width: 1100px) {
+    width: 100%;
+  }
 `
 
 export const CheckoutContentsBlockBase = styled.div`
   background-color: ${(props) => props.theme['gray-200']};
   padding: 2.5rem;
+
+  @media (max-width: 400px) {
+    padding: 1.5rem 1rem;
+  }
 
   header {
     display: flex;
@@ -58,6 +74,10 @@ export const PaymentDetailsBlock = styled(CheckoutContentsBlockBase)`
     justify-content: space-between;
     align-items: center;
     gap: 0.75rem;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
   }
 `
 
@@ -116,6 +136,11 @@ export const DeliveryDetailsLineContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `
 
 export const DeliveryDetailsInputWrapper = styled.div`
@@ -159,11 +184,19 @@ export const DeliveryDetailsInputBase = styled.input`
 export const DeliveryInputOneThird = styled(DeliveryDetailsInputWrapper)`
   max-width: 33%;
   width: 100%;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 `
 
 export const DeliveryInputTwoThirds = styled(DeliveryDetailsInputWrapper)`
   max-width: 66%;
   width: 100%;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 `
 
 export const DeliveryInputFullWidth = styled(DeliveryDetailsInputWrapper)`
@@ -174,11 +207,19 @@ export const DeliveryInputFullWidth = styled(DeliveryDetailsInputWrapper)`
 export const DeliveryInputHalfWidth = styled(DeliveryDetailsInputWrapper)`
   max-width: 50%;
   width: 100%;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 `
 
 export const DeliveryInputSmall = styled(DeliveryDetailsInputWrapper)`
   max-width: 80px;
   width: 100%;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 `
 
 export const SelectedProductsBlock = styled(CheckoutContentsBlockBase)`
@@ -198,9 +239,17 @@ export const CartContentsItem = styled.div`
   padding-bottom: 2rem;
   border-bottom: 1px solid ${(props) => props.theme['gray-400']};
 
+  @media (max-width: 600px) {
+    align-items: center;
+  }
+
   > div {
     display: flex;
     gap: 1.25rem;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
   }
 `
 
@@ -208,6 +257,16 @@ export const CartContentsMiddle = styled.div`
   div > div {
     display: flex;
     gap: 0.5rem;
+  }
+
+  @media (max-width: 320px) {
+    div > div {
+      flex-direction: column;
+    }
+
+    div > div > div {
+      flex-direction: row;
+    }
   }
 
   header {
@@ -238,6 +297,11 @@ export const RemoveItemButton = styled.button`
   border: none;
   border-radius: 6px;
   padding: 0.4rem 0.5rem;
+
+  @media (max-width: 320px) {
+    justify-content: center;
+    padding: 0.55rem;
+  }
 `
 
 export const CartTotalSum = styled.div`
