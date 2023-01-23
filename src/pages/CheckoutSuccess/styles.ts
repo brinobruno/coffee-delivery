@@ -78,20 +78,30 @@ export const SuccessDetails = styled.ul`
       ${(props) => props.theme['yellow-500']}
     );
   }
+`
 
-  li {
+interface SuccessDetailItem {
+  backgroundColor: string
+}
+
+export const SuccessDetailsItem = styled.li<SuccessDetailItem>`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  figure {
+    padding: 0.5rem;
+    background-color: ${(props) => props.backgroundColor};
+    clip-path: circle();
+
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0.75rem;
+  }
 
-    figure {
-      padding: 0.5rem;
-      background-color: ${(props) => props.theme['purple-500']};
-      clip-path: circle();
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  div span {
+    font-size: 1rem;
+    line-height: 20px;
+    color: ${(props) => props.theme['gray-700']};
   }
 `
