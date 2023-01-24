@@ -3,11 +3,12 @@ import {
   ReactNode,
   SetStateAction,
   createContext,
+  useContext,
   useState,
 } from 'react'
 
-interface IProductInCartData {
-  id: number | null
+export interface IProductInCartData {
+  id: number
   quantity: number
 }
 
@@ -37,14 +38,31 @@ export const ProductsInCartProvider = ({
 }
 
 export const useProductsInCartContext = () => {
-  // const { itemsInCart, setItemsInCart } = useContext(ProductsInCartContext)
-  // function handleAddItemToCart() {
-  //   if (itemsInCart === 'dark') {
-  //     setIsDarkTheme('light')
-  //   }
-  // }
-  // return {
-  //   itemsInCart,
-  //   setItemsInCart,
-  // }
+  const { itemsInCart, setItemsInCart } = useContext(ProductsInCartContext)
+
+  function AddItemToCart(newItem: IProductInCartData) {
+    // Check if the item already exists in the cart
+    const existingItem = itemsInCart.find((item) => item.id === newItem.id)
+
+    if (existingItem) {
+      // If the item already exists, update its quantity
+      const updatedItems = itemsInCart.map((item) => {
+        if (item.id === newItem.id) {
+          return { ...item, quantity: item.quantity + newItem.quantity }
+        }
+        return item
+      })
+      setItemsInCart(updatedItems)
+      console.log(itemsInCart)
+    } else {
+      // If the item does not exist, add it to the cart
+      setItemsInCart([...itemsInCart, newItem])
+    }
+  }
+
+  return {
+    itemsInCart,
+    setItemsInCart,
+    AddItemToCart,
+  }
 }
