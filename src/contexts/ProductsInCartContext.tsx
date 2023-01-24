@@ -6,14 +6,14 @@ import {
   useState,
 } from 'react'
 
-interface IProductInCart {
+interface IProductInCartData {
   id: number | null
   quantity: number
 }
 
 interface IProductsInCart {
-  itemsInCart: Array<IProductInCart>
-  setItemsInCart: Dispatch<SetStateAction<IProductInCart[]>>
+  itemsInCart: Array<IProductInCartData>
+  setItemsInCart: Dispatch<SetStateAction<IProductInCartData[]>>
 }
 
 // export type ProductsInCartType = IProductInCart[]
@@ -27,11 +27,11 @@ export const ProductsInCartContext = createContext({} as IProductsInCart)
 export const ProductsInCartProvider = ({
   children,
 }: IProductsInCartProviderProps) => {
-  const [itemsInCart, setItemsInCart] = useState<IProductInCart[]>([])
+  const [itemsInCart, setItemsInCart] = useState<IProductInCartData[]>([])
 
   return (
     <ProductsInCartContext.Provider value={{ itemsInCart, setItemsInCart }}>
-      <ProductsInCartProvider>{children}</ProductsInCartProvider>
+      {children}
     </ProductsInCartContext.Provider>
   )
 }
