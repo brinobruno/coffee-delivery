@@ -8,24 +8,28 @@ import {
   AddItemsWrapper,
   TagsContainer,
 } from './styles'
+import { IProductInCartData } from '../../contexts/ProductsInCartContext'
 
 interface IProductCard {
-  id?: number
+  id: number
   picture: string
   tags: string[]
   title: string
   description: string
   price: number
+  AddItemToCart?: (item: IProductInCartData) => void
 }
 
 export interface ProductsRepositoryData extends Array<IProductCard> {}
 
 export function ProductCard({
+  id,
   picture,
   tags,
   title,
   description,
   price,
+  AddItemToCart,
 }: IProductCard) {
   const currentTheme = useTheme()
 
@@ -67,7 +71,13 @@ export function ProductCard({
             />
           </AddItemsWrapper>
 
-          <CartWrapper>
+          <CartWrapper
+            onClick={() => {
+              if (AddItemToCart) {
+                AddItemToCart({ id, quantity: 1 })
+              }
+            }}
+          >
             <ShoppingCart
               size={22}
               weight="fill"
