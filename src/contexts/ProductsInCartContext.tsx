@@ -61,6 +61,7 @@ export const useProductsInCartContext = () => {
     }
   }
 
+  // Import { return destructured } = useProductsInCartContext()
   return {
     itemsInCart,
     setItemsInCart,
