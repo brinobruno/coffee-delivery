@@ -57,6 +57,7 @@ export const useProductsInCartContext = () => {
     } else {
       // If the item does not exist, add it to the cart
       setItemsInCart([...itemsInCart, newItem])
+      console.log(itemsInCart)
     }
   }
 
