@@ -1,13 +1,24 @@
-import { createContext } from 'react'
+import { ReactNode, createContext /*, useState */ } from 'react'
 
 export interface IProductsInCart {
   id: number | null
   quantity: number
 }
 
-const productsInCart = {
-  id: null,
-  quantity: 0,
+export interface IProductsInCartProviderProps {
+  children: ReactNode
 }
 
-export const ProductsInCart = createContext<IProductsInCart>(productsInCart)
+export const ProductsInCartContext = createContext({} as IProductsInCart)
+
+export const ProductsInCartProvider = ({
+  children,
+}: IProductsInCartProviderProps) => {
+  // const [itemsInCart, setItemsInCart] = useState([])
+
+  return (
+    <ProductsInCartContext.Provider value={{} as IProductsInCart}>
+      <ProductsInCartProvider>{children}</ProductsInCartProvider>
+    </ProductsInCartContext.Provider>
+  )
+}
