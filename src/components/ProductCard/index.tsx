@@ -17,7 +17,7 @@ interface IProductCard {
   title: string
   description: string
   price: number
-  AddItemToCart?: (item: IProductInCartData) => void
+  addItemToCart?: (item: IProductInCartData) => void
 }
 
 export interface ProductsRepositoryData extends Array<IProductCard> {}
@@ -29,7 +29,7 @@ export function ProductCard({
   title,
   description,
   price,
-  AddItemToCart,
+  addItemToCart,
 }: IProductCard) {
   const currentTheme = useTheme()
 
@@ -73,9 +73,7 @@ export function ProductCard({
 
           <CartWrapper
             onClick={() => {
-              if (AddItemToCart) {
-                AddItemToCart({ id, quantity: 1 })
-              }
+              if (addItemToCart) addItemToCart({ id, quantity: 1 })
             }}
           >
             <ShoppingCart

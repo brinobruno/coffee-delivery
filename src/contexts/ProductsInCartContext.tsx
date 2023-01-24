@@ -40,7 +40,7 @@ export const ProductsInCartProvider = ({
 export const useProductsInCartContext = () => {
   const { itemsInCart, setItemsInCart } = useContext(ProductsInCartContext)
 
-  function AddItemToCart(newItem: IProductInCartData) {
+  function addItemToCart(newItem: IProductInCartData) {
     // Check if the item already exists in the cart
     const existingItem = itemsInCart.find((item) => item.id === newItem.id)
 
@@ -63,6 +63,6 @@ export const useProductsInCartContext = () => {
   return {
     itemsInCart,
     setItemsInCart,
-    AddItemToCart,
+    addItemToCart,
   }
 }

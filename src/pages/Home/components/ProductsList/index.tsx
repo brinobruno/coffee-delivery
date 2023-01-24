@@ -4,7 +4,7 @@ import { PRODUCTS_REPOSITORY } from '../../../../repository/products'
 import { useProductsInCartContext } from './../../../../contexts/ProductsInCartContext'
 
 export function ProductsList() {
-  const { AddItemToCart } = useProductsInCartContext()
+  const { addItemToCart } = useProductsInCartContext()
 
   return (
     <ProductsListContainer>
@@ -21,7 +21,7 @@ export function ProductsList() {
               description={product.description}
               price={product.price}
               id={product.id}
-              AddItemToCart={AddItemToCart}
+              addItemToCart={addItemToCart}
             />
           ))}
         </ProductsGrid>
