@@ -1,15 +1,17 @@
 import { ReactNode, createContext /*, useState */ } from 'react'
 
-export interface IProductsInCart {
+interface IProductInCart {
   id: number | null
   quantity: number
 }
+
+export type ProductsInCartType = IProductInCart[]
 
 export interface IProductsInCartProviderProps {
   children: ReactNode
 }
 
-export const ProductsInCartContext = createContext({} as IProductsInCart)
+export const ProductsInCartContext = createContext({} as ProductsInCartType)
 
 export const ProductsInCartProvider = ({
   children,
@@ -17,7 +19,7 @@ export const ProductsInCartProvider = ({
   // const [itemsInCart, setItemsInCart] = useState([])
 
   return (
-    <ProductsInCartContext.Provider value={{} as IProductsInCart}>
+    <ProductsInCartContext.Provider value={{} as ProductsInCartType}>
       <ProductsInCartProvider>{children}</ProductsInCartProvider>
     </ProductsInCartContext.Provider>
   )
