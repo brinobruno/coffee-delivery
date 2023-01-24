@@ -1,8 +1,11 @@
 import { ProductCard } from '../../../../components/ProductCard'
 import { ProductsListContainer, ProductsGrid } from './styles'
 import { PRODUCTS_REPOSITORY } from '../../../../repository/products'
+import { useProductsInCartContext } from './../../../../contexts/ProductsInCartContext'
 
 export function ProductsList() {
+  const { AddItemToCart } = useProductsInCartContext()
+
   return (
     <ProductsListContainer>
       <section>
@@ -17,6 +20,8 @@ export function ProductsList() {
               picture={product.picture}
               description={product.description}
               price={product.price}
+              id={product.id}
+              AddItemToCart={AddItemToCart}
             />
           ))}
         </ProductsGrid>
