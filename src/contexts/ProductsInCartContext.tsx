@@ -61,10 +61,21 @@ export const useProductsInCartContext = () => {
     }
   }
 
+  function getTotalQuantity() {
+    let totalAmount: number = 0
+
+    for (const i in itemsInCart) {
+      totalAmount += itemsInCart[i].quantity
+    }
+
+    return totalAmount
+  }
+
   // Import { return destructured } = useProductsInCartContext()
   return {
     itemsInCart,
     setItemsInCart,
     addItemToCart,
+    getTotalQuantity,
   }
 }
