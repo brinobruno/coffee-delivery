@@ -48,14 +48,13 @@ export const useProductsInCartContext = () => {
         if (item.id === newItem.id) {
           return { ...item, quantity: item.quantity + newItem.quantity }
         }
+
         return item
       })
       setItemsInCart(updatedItems)
-      console.log(itemsInCart)
     } else {
       // If the item does not exist, add it to the cart
       setItemsInCart([...itemsInCart, newItem])
-      console.log(itemsInCart)
     }
   }
 
