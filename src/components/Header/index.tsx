@@ -8,10 +8,14 @@ import { CartCounter, CartWrapper, HeaderContainer, MapWrapper } from './styles'
 
 import logoLight from './../../assets/logo-light.svg'
 import logoDark from './../../assets/logo-dark.svg'
+import { useProductsInCartContext } from '../../contexts/ProductsInCartContext'
 
 export function Header() {
   const currentTheme = useTheme()
   const { isDarkTheme } = useThemeContext()
+  const { getTotalQuantity } = useProductsInCartContext()
+
+  const totalQuantity = getTotalQuantity()
 
   return (
     <HeaderContainer>
@@ -44,7 +48,7 @@ export function Header() {
               color={currentTheme['yellow-700']}
             />
 
-            <CartCounter>7</CartCounter>
+            <CartCounter>{totalQuantity}</CartCounter>
           </CartWrapper>
         </NavLink>
       </nav>

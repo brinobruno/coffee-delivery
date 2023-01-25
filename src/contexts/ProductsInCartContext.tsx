@@ -17,8 +17,6 @@ interface IProductsInCart {
   setItemsInCart: Dispatch<SetStateAction<IProductInCartData[]>>
 }
 
-// export type ProductsInCartType = IProductInCart[]
-
 export interface IProductsInCartProviderProps {
   children: ReactNode
 }
@@ -71,7 +69,6 @@ export const useProductsInCartContext = () => {
     return totalAmount
   }
 
-  // Import { return destructured } = useProductsInCartContext()
   return {
     itemsInCart,
     setItemsInCart,
