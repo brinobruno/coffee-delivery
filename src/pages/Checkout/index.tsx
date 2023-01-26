@@ -38,8 +38,11 @@ import {
   CartContentsItem,
   CartContentsMiddle,
   RemoveItemButton,
+  EmptyCartMessage,
 } from './styles'
 import { AddItemsWrapper } from './../../components/ProductCard/styles'
+import { useProductsInCartContext } from '../../contexts/ProductsInCartContext'
+import { NavLink } from 'react-router-dom'
 
 const checkoutFormValidationSchema = zod.object({
   name: zod.string().min(2, 'Inform your name'),
@@ -50,8 +53,10 @@ type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
 
 export function Checkout() {
   const currentTheme = useTheme()
-
   const [paymentMethod, setPaymentMethod] = useState('')
+  const { getItemsData } = useProductsInCartContext()
+
+  const itemsRetrieved = getItemsData()
 
   const handleChangePaymentMethod = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -191,126 +196,92 @@ export function Checkout() {
         <CartContents>
           <h3>Selected coffees</h3>
           <SelectedProductsBlock>
-            <CartContentsList>
-              <CartContentsItem>
-                <CartContentsMiddle>
-                  <img
-                    src={PRODUCTS_REPOSITORY[0].picture}
-                    alt={PRODUCTS_REPOSITORY[0].title}
-                  />
+            {itemsRetrieved.length > 0 ? (
+              <>
+                <CartContentsList>
+                  {itemsRetrieved.map((product) => (
+                    <CartContentsItem key={product.id}>
+                      <CartContentsMiddle>
+                        <img src={product.picture} alt={product.title} />
+                        <div>
+                          <header>{product.title}</header>
+
+                          <div>
+                            <AddItemsWrapper>
+                              <Minus
+                                size={14}
+                                color={currentTheme['purple-700']}
+                                cursor="pointer"
+                                alt="Remove 1 more"
+                              />
+                              <input
+                                type="text"
+                                inputMode="numeric"
+                                placeholder="1"
+                              />
+                              <Plus
+                                size={14}
+                                color={currentTheme['purple-700']}
+                                cursor="pointer"
+                                alt="Add 1 more"
+                              />
+                            </AddItemsWrapper>
+
+                            <RemoveItemButton>
+                              <Trash
+                                size={14}
+                                color={currentTheme['purple-700']}
+                                cursor="pointer"
+                                alt="Remove 1 more"
+                              />
+                              Remove
+                            </RemoveItemButton>
+                          </div>
+                        </div>
+                      </CartContentsMiddle>
+
+                      <strong>
+                        R$
+                        {PRODUCTS_REPOSITORY[0].price
+                          .toFixed(2)
+                          .replace('.', ',')}
+                      </strong>
+                    </CartContentsItem>
+                  ))}
+                </CartContentsList>
+
+                <CartTotalSum>
                   <div>
-                    <header>{PRODUCTS_REPOSITORY[0].title}</header>
-
-                    <div>
-                      <AddItemsWrapper>
-                        <Minus
-                          size={14}
-                          color={currentTheme['purple-700']}
-                          cursor="pointer"
-                          alt="Remove 1 more"
-                        />
-                        <input
-                          type="text"
-                          inputMode="numeric"
-                          placeholder="1"
-                        />
-                        <Plus
-                          size={14}
-                          color={currentTheme['purple-700']}
-                          cursor="pointer"
-                          alt="Add 1 more"
-                        />
-                      </AddItemsWrapper>
-
-                      <RemoveItemButton>
-                        <Trash
-                          size={14}
-                          color={currentTheme['purple-700']}
-                          cursor="pointer"
-                          alt="Remove 1 more"
-                        />
-                        Remove
-                      </RemoveItemButton>
-                    </div>
+                    <span>Items total</span>
+                    <em>R$ 29,70</em>
                   </div>
-                </CartContentsMiddle>
 
-                <strong>
-                  R$
-                  {PRODUCTS_REPOSITORY[0].price.toFixed(2).replace('.', ',')}
-                </strong>
-              </CartContentsItem>
-
-              <CartContentsItem>
-                <CartContentsMiddle>
-                  <img
-                    src={PRODUCTS_REPOSITORY[6].picture}
-                    alt={PRODUCTS_REPOSITORY[6].title}
-                  />
                   <div>
-                    <header>{PRODUCTS_REPOSITORY[6].title}</header>
-
-                    <div>
-                      <AddItemsWrapper>
-                        <Minus
-                          size={14}
-                          color={currentTheme['purple-700']}
-                          cursor="pointer"
-                          alt="Remove 1 more"
-                        />
-                        <input
-                          type="text"
-                          inputMode="numeric"
-                          placeholder="1"
-                        />
-                        <Plus
-                          size={14}
-                          color={currentTheme['purple-700']}
-                          cursor="pointer"
-                          alt="Add 1 more"
-                        />
-                      </AddItemsWrapper>
-
-                      <RemoveItemButton>
-                        <Trash
-                          size={14}
-                          color={currentTheme['purple-700']}
-                          cursor="pointer"
-                          alt="Remove 1 more"
-                        />
-                        Remove
-                      </RemoveItemButton>
-                    </div>
+                    <span>Delivery</span>
+                    <em>R$ 3,50</em>
                   </div>
-                </CartContentsMiddle>
 
-                <strong>
-                  R$
-                  {PRODUCTS_REPOSITORY[6].price.toFixed(2).replace('.', ',')}
-                </strong>
-              </CartContentsItem>
-            </CartContentsList>
+                  <div>
+                    <strong>Total</strong>
+                    <strong>R$ 33,20</strong>
+                  </div>
 
-            <CartTotalSum>
+                  <ConfirmOrderButton type="submit">
+                    Confirm order
+                  </ConfirmOrderButton>
+                </CartTotalSum>
+              </>
+            ) : (
               <div>
-                <span>Items total</span>
-                <em>R$ 29,70</em>
+                <EmptyCartMessage>
+                  Your cart is empty. <br />
+                  <NavLink to="/" title="Home">
+                    Go back to the shop
+                  </NavLink>{' '}
+                  to add items
+                </EmptyCartMessage>
               </div>
-
-              <div>
-                <span>Delivery</span>
-                <em>R$ 3,50</em>
-              </div>
-
-              <div>
-                <strong>Total</strong>
-                <strong>R$ 33,20</strong>
-              </div>
-
-              <ConfirmOrderButton type="submit">
-                Confirm order
-              </ConfirmOrderButton>
-            </CartTotalSum>
+            )}
           </SelectedProductsBlock>
         </CartContents>
       </FormContainer>
