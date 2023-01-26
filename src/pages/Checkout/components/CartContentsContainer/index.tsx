@@ -19,9 +19,15 @@ import {
 
 export function CartContentsContainer() {
   const currentTheme = useTheme()
-  const { getItemsData } = useProductsInCartContext()
+  const { getItemsData /*, itemsInCart */ } = useProductsInCartContext()
 
   const itemsRetrieved = getItemsData()
+
+  // let totalAmount = 0
+  // itemsRetrieved.map((product, index) => (totalAmount += product.price))
+
+  // console.log(itemsRetrieved)
+  // console.log(itemsInCart)
 
   return (
     <CartContents>
@@ -83,7 +89,7 @@ export function CartContentsContainer() {
             <CartTotalSum>
               <div>
                 <span>Items total</span>
-                <em>R$ 29,70</em>
+                <em>R$ 29,00</em>
               </div>
 
               <div>
