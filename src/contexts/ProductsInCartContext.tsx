@@ -6,6 +6,7 @@ import {
   useContext,
   useState,
 } from 'react'
+import { PRODUCTS_REPOSITORY } from '../repository/products'
 
 export interface IProductInCartData {
   id: number
@@ -68,10 +69,21 @@ export const useProductsInCartContext = () => {
     return totalAmount
   }
 
+  function getItemsData() {
+    const itemsIds = itemsInCart.map((item) => item.id)
+
+    const itemsRetrieved = PRODUCTS_REPOSITORY.filter((product) => {
+      return itemsIds.includes(product.id)
+    })
+
+    return itemsRetrieved
+  }
+
   return {
     itemsInCart,
     setItemsInCart,
     addItemToCart,
     getTotalQuantity,
+    getItemsData,
   }
 }
