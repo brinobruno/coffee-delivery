@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTheme } from 'styled-components'
+
 import {
   Bank,
   CreditCard,
@@ -15,6 +17,7 @@ import {
 } from 'phosphor-react'
 
 import { PRODUCTS_REPOSITORY } from '../../repository/products'
+import { useProductsInCartContext } from '../../contexts/ProductsInCartContext'
 import {
   CartContents,
   ConfirmOrderButton,
@@ -41,8 +44,6 @@ import {
   EmptyCartMessage,
 } from './styles'
 import { AddItemsWrapper } from './../../components/ProductCard/styles'
-import { useProductsInCartContext } from '../../contexts/ProductsInCartContext'
-import { NavLink } from 'react-router-dom'
 
 const checkoutFormValidationSchema = zod.object({
   name: zod.string().min(2, 'Inform your name'),
