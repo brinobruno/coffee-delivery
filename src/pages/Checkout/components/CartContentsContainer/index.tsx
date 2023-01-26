@@ -1,9 +1,9 @@
+import { useTheme } from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { PRODUCTS_REPOSITORY } from '../../../../repository/products'
-import { AddItemsWrapper } from '../../../../components/ProductCard/styles'
-
 import { Minus, Plus, Trash } from 'phosphor-react'
 
+import { PRODUCTS_REPOSITORY } from '../../../../repository/products'
+import { AddItemsWrapper } from '../../../../components/ProductCard/styles'
 import { useProductsInCartContext } from '../../../../contexts/ProductsInCartContext'
 import {
   CartContents,
@@ -16,7 +16,6 @@ import {
   RemoveItemButton,
   EmptyCartMessage,
 } from './styles'
-import { useTheme } from 'styled-components'
 
 export function CartContentsContainer() {
   const currentTheme = useTheme()
@@ -27,6 +26,7 @@ export function CartContentsContainer() {
   return (
     <CartContents>
       <h3>Selected coffees</h3>
+
       <SelectedProductsBlock>
         {itemsRetrieved.length > 0 ? (
           <>
