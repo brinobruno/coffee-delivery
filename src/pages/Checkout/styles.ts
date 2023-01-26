@@ -355,3 +355,17 @@ export const ConfirmOrderButton = styled.button`
     background-color: ${(props) => props.theme['yellow-700']};
   }
 `
+
+export const EmptyCartMessage = styled.span`
+  line-height: 1.75rem;
+
+  a {
+    font-weight: 700;
+    color: ${(props) => props.theme['purple-700']};
+    transition: 0.2s color ease-in-out;
+
+    &:hover {
+      color: ${(props) => props.theme['purple-500']};
+    }
+  }
+`
