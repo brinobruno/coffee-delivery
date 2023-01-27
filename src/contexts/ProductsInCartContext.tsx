@@ -11,6 +11,7 @@ import { PRODUCTS_REPOSITORY } from '../repository/products'
 export interface IProductInCartData {
   id: number
   quantity: number
+  price: number
 }
 
 interface IProductsInCart {
@@ -47,7 +48,11 @@ export const useProductsInCartContext = () => {
       // If the item already exists, update its quantity
       const updatedItems = itemsInCart.map((item) => {
         if (item.id === newItem.id) {
-          return { ...item, quantity: item.quantity + newItem.quantity }
+          return {
+            ...item,
+            quantity: item.quantity + newItem.quantity,
+            price: item.price,
+          }
         }
 
         return item

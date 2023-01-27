@@ -73,7 +73,7 @@ export function ProductCard({
 
           <CartWrapper
             onClick={() => {
-              if (addItemToCart) addItemToCart({ id, quantity: 1 })
+              if (addItemToCart) addItemToCart({ id, quantity: 1, price })
             }}
           >
             <ShoppingCart

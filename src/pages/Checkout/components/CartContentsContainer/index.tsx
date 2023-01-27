@@ -19,9 +19,11 @@ import {
 
 export function CartContentsContainer() {
   const currentTheme = useTheme()
-  const { getItemsData /*, itemsInCart */ } = useProductsInCartContext()
+  const { getItemsData, itemsInCart } = useProductsInCartContext()
 
   const itemsRetrieved = getItemsData()
+
+  console.log(itemsInCart)
 
   // let totalAmount = 0
   // itemsRetrieved.map((product, index) => (totalAmount += product.price))
