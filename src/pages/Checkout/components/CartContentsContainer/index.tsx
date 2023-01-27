@@ -24,6 +24,10 @@ export function CartContentsContainer() {
   const itemsRetrieved = getItemsData()
   const totalCartPrice = calculateTotalCartPrice()
 
+  const DELIVERY_FLAT_RATE: number = 3.5
+
+  const totalOrderPrice = totalCartPrice + DELIVERY_FLAT_RATE
+
   return (
     <CartContents>
       <h3>Selected coffees</h3>
@@ -89,12 +93,14 @@ export function CartContentsContainer() {
 
               <div>
                 <span>Delivery</span>
-                <em>R$ 3,50</em>
+                <em>R$ {DELIVERY_FLAT_RATE.toFixed(2).replace('.', ',')}</em>
               </div>
 
               <div>
                 <strong>Total</strong>
-                <strong>R$ 33,20</strong>
+                <strong>
+                  R$ {totalOrderPrice.toFixed(2).replace('.', ',')}
+                </strong>
               </div>
 
               <ConfirmOrderButton type="submit">
