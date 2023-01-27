@@ -15,6 +15,8 @@
 
 [ ] - Move useThemeContext to a separate hook file
 
+[ ] - Make price formatting method
+
 ### Extra features
 [X] - Dark mode - 2 styled themes
 
