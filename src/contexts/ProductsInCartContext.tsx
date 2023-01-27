@@ -88,12 +88,23 @@ export const useProductsInCartContext = () => {
     setItemsInCart([])
   }
 
+  function calculateTotalCartPrice() {
+    let totalPriceAmount = 0
+
+    for (const item of itemsInCart) {
+      totalPriceAmount += item.price * item.quantity
+    }
+
+    return totalPriceAmount
+  }
+
   return {
     itemsInCart,
     setItemsInCart,
     addItemToCart,
     getTotalQuantity,
     getItemsData,
+    calculateTotalCartPrice,
     emptyCart,
   }
 }
