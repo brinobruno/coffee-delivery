@@ -19,17 +19,10 @@ import {
 
 export function CartContentsContainer() {
   const currentTheme = useTheme()
-  const { getItemsData, itemsInCart } = useProductsInCartContext()
+  const { getItemsData, calculateTotalCartPrice } = useProductsInCartContext()
 
   const itemsRetrieved = getItemsData()
-
-  console.log(itemsInCart)
-
-  // let totalAmount = 0
-  // itemsRetrieved.map((product, index) => (totalAmount += product.price))
-
-  // console.log(itemsRetrieved)
-  // console.log(itemsInCart)
+  const totalCartPrice = calculateTotalCartPrice()
 
   return (
     <CartContents>
@@ -91,7 +84,7 @@ export function CartContentsContainer() {
             <CartTotalSum>
               <div>
                 <span>Items total</span>
-                <em>R$ 29,00</em>
+                <em>R$ {totalCartPrice.toFixed(2).replace('.', ',')}</em>
               </div>
 
               <div>
