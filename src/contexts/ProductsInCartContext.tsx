@@ -79,7 +79,7 @@ export const useProductsInCartContext = () => {
     return itemsRetrieved
   }
 
-  function cleanCart() {
+  function emptyCart() {
     setItemsInCart([])
   }
 
@@ -89,6 +89,6 @@ export const useProductsInCartContext = () => {
     addItemToCart,
     getTotalQuantity,
     getItemsData,
-    cleanCart,
+    emptyCart,
   }
 }
