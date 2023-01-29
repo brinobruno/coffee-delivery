@@ -15,7 +15,9 @@
 
 [ ] - Move useThemeContext to a separate hook file
 
-[ ] - Make price formatting method
+[X] - Make price formatting method
+
+[ ] - Move product interface declaration to context file
 
 ### Extra features
 [X] - Dark mode - 2 styled themes
