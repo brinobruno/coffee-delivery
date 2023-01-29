@@ -18,8 +18,12 @@ import {
 
 export function CartContentsContainer() {
   const currentTheme = useTheme()
-  const { getItemsData, calculateTotalCartPrice, formatPrice } =
-    useProductsInCartContext()
+  const {
+    getItemsData,
+    calculateTotalCartPrice,
+    removeItemFromCart,
+    formatPrice,
+  } = useProductsInCartContext()
 
   const itemsRetrieved = getItemsData()
   const totalCartPrice = calculateTotalCartPrice()
@@ -64,7 +68,15 @@ export function CartContentsContainer() {
                           />
                         </AddItemsWrapper>
 
-                        <RemoveItemButton>
+                        <RemoveItemButton
+                          onClick={() =>
+                            removeItemFromCart({
+                              id: product.id,
+                              price: 0,
+                              quantity: 0,
+                            })
+                          }
+                        >
                           <Trash
                             size={14}
                             color={currentTheme['purple-700']}
