@@ -65,6 +65,14 @@ export const useProductsInCartContext = () => {
     }
   }
 
+  function removeItemFromCart(itemToRemove: IProductInCartData) {
+    const updatedItems = itemsInCart.filter(
+      (item) => item.id !== itemToRemove.id,
+    )
+
+    setItemsInCart(updatedItems)
+  }
+
   function getTotalQuantity() {
     let totalAmount: number = 0
 
@@ -109,6 +117,7 @@ export const useProductsInCartContext = () => {
     itemsInCart,
     setItemsInCart,
     addItemToCart,
+    removeItemFromCart,
     getTotalQuantity,
     getItemsData,
     calculateTotalCartPrice,
