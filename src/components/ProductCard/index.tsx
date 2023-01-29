@@ -8,7 +8,10 @@ import {
   AddItemsWrapper,
   TagsContainer,
 } from './styles'
-import { IProductInCartData } from '../../contexts/ProductsInCartContext'
+import {
+  IProductInCartData,
+  useProductsInCartContext,
+} from '../../contexts/ProductsInCartContext'
 
 interface IProductCard {
   id: number
@@ -32,6 +35,7 @@ export function ProductCard({
   addItemToCart,
 }: IProductCard) {
   const currentTheme = useTheme()
+  const { formatPrice } = useProductsInCartContext()
 
   return (
     <ProductCardContainer>
@@ -51,7 +55,7 @@ export function ProductCard({
       <PurchaseContainer>
         <strong>
           <span>R$</span>
-          {price.toFixed(2).replace('.', ',')}
+          {formatPrice(price, false)}
         </strong>
 
         <div>
