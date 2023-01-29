@@ -18,7 +18,8 @@ import {
 
 export function CartContentsContainer() {
   const currentTheme = useTheme()
-  const { getItemsData, calculateTotalCartPrice } = useProductsInCartContext()
+  const { getItemsData, calculateTotalCartPrice, formatPrice } =
+    useProductsInCartContext()
 
   const itemsRetrieved = getItemsData()
   const totalCartPrice = calculateTotalCartPrice()
@@ -76,10 +77,7 @@ export function CartContentsContainer() {
                     </div>
                   </CartContentsMiddle>
 
-                  <strong>
-                    R$
-                    {product.price.toFixed(2).replace('.', ',')}
-                  </strong>
+                  <strong>{formatPrice(product.price)}</strong>
                 </CartContentsItem>
               ))}
             </CartContentsList>
@@ -87,19 +85,17 @@ export function CartContentsContainer() {
             <CartTotalSum>
               <div>
                 <span>Items total</span>
-                <em>R$ {totalCartPrice.toFixed(2).replace('.', ',')}</em>
+                <em>{formatPrice(totalCartPrice)}</em>
               </div>
 
               <div>
                 <span>Delivery</span>
-                <em>R$ {DELIVERY_FLAT_RATE.toFixed(2).replace('.', ',')}</em>
+                <em>{formatPrice(DELIVERY_FLAT_RATE)}</em>
               </div>
 
               <div>
                 <strong>Total</strong>
-                <strong>
-                  R$ {totalOrderPrice.toFixed(2).replace('.', ',')}
-                </strong>
+                <strong>{formatPrice(totalOrderPrice)}</strong>
               </div>
 
               <ConfirmOrderButton type="submit">
