@@ -99,6 +99,10 @@ export const useProductsInCartContext = () => {
     return totalPriceAmount
   }
 
+  function formatPrice(price: number) {
+    return `R$ ${price.toFixed(2).replace('.', ',')}`
+  }
+
   return {
     itemsInCart,
     setItemsInCart,
@@ -107,5 +111,6 @@ export const useProductsInCartContext = () => {
     getItemsData,
     calculateTotalCartPrice,
     emptyCart,
+    formatPrice,
   }
 }
