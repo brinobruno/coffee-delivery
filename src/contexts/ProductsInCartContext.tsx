@@ -99,8 +99,10 @@ export const useProductsInCartContext = () => {
     return totalPriceAmount
   }
 
-  function formatPrice(price: number) {
-    return `R$ ${price.toFixed(2).replace('.', ',')}`
+  function formatPrice(price: number, currency: boolean = true) {
+    if (currency === false) {
+      return price.toFixed(2).replace('.', ',')
+    } else return `R$ ${price.toFixed(2).replace('.', ',')}`
   }
 
   return {
