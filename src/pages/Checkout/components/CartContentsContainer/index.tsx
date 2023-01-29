@@ -79,7 +79,7 @@ export function CartContentsContainer() {
 
                   <strong>
                     R$
-                    {PRODUCTS_REPOSITORY[0].price.toFixed(2).replace('.', ',')}
+                    {product.price.toFixed(2).replace('.', ',')}
                   </strong>
                 </CartContentsItem>
               ))}
