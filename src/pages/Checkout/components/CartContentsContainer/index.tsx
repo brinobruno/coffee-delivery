@@ -2,7 +2,6 @@ import { useTheme } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { Minus, Plus, Trash } from 'phosphor-react'
 
-import { PRODUCTS_REPOSITORY } from '../../../../repository/products'
 import { AddItemsWrapper } from '../../../../components/ProductCard/styles'
 import { useProductsInCartContext } from '../../../../contexts/ProductsInCartContext'
 import {
