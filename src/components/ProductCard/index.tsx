@@ -9,19 +9,9 @@ import {
   TagsContainer,
 } from './styles'
 import {
-  IProductInCartData,
+  IProductCard,
   useProductsInCartContext,
 } from '../../contexts/ProductsInCartContext'
-
-interface IProductCard {
-  id: number
-  picture: string
-  tags: string[]
-  title: string
-  description: string
-  price: number
-  addItemToCart?: (item: IProductInCartData) => void
-}
 
 export interface ProductsRepositoryData extends Array<IProductCard> {}
 
