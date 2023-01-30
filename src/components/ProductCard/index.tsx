@@ -8,10 +8,8 @@ import {
   AddItemsWrapper,
   TagsContainer,
 } from './styles'
-import {
-  IProductCard,
-  useProductsInCartContext,
-} from '../../contexts/ProductsInCartContext'
+import { IProductCard } from '../../contexts/ProductsInCartContext'
+import { formatPrice } from '../../utils/formatPrice'
 
 export interface ProductsRepositoryData extends Array<IProductCard> {}
 
@@ -25,7 +23,6 @@ export function ProductCard({
   addItemToCart,
 }: IProductCard) {
   const currentTheme = useTheme()
-  const { formatPrice } = useProductsInCartContext()
 
   return (
     <ProductCardContainer>

@@ -4,6 +4,7 @@ import { Minus, Plus, Trash } from 'phosphor-react'
 
 import { AddItemsWrapper } from '../../../../components/ProductCard/styles'
 import { useProductsInCartContext } from '../../../../contexts/ProductsInCartContext'
+import { formatPrice } from '../../../../utils/formatPrice'
 import {
   CartContents,
   ConfirmOrderButton,
@@ -18,12 +19,8 @@ import {
 
 export function CartContentsContainer() {
   const currentTheme = useTheme()
-  const {
-    getItemsData,
-    calculateTotalCartPrice,
-    removeItemFromCart,
-    formatPrice,
-  } = useProductsInCartContext()
+  const { getItemsData, calculateTotalCartPrice, removeItemFromCart } =
+    useProductsInCartContext()
 
   const itemsRetrieved = getItemsData()
   const totalCartPrice = calculateTotalCartPrice()
