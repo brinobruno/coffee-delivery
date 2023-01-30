@@ -14,6 +14,16 @@ export interface IProductInCartData {
   price: number
 }
 
+export interface IProductCard {
+  id: number
+  picture: string
+  tags: string[]
+  title: string
+  description: string
+  price: number
+  addItemToCart?: (item: IProductInCartData) => void
+}
+
 interface IProductsInCart {
   itemsInCart: Array<IProductInCartData>
   setItemsInCart: Dispatch<SetStateAction<IProductInCartData[]>>
