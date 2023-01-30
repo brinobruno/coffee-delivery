@@ -90,9 +90,14 @@ export const PaymentDetailOption = styled.div<PaymentOptionProps>`
     props.checked === true
       ? `0 0 0 1px ${props.theme['purple-500']} inset`
       : ''};
+  transition: all 0.25s ease-in-out;
 
   border-radius: 6px;
   padding: 1rem;
+
+  &:hover {
+    background-color: ${(props) => props.theme['gray-500']};
+  }
 
   span {
     text-transform: uppercase;
