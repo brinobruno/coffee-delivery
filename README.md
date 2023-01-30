@@ -17,7 +17,7 @@
 
 [X] - Make price formatting method
 
-[ ] - Move product interface declaration to context file
+[X] - Move product interface declaration to context file
 
 ### Extra features
 [X] - Dark mode - 2 styled themes
