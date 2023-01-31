@@ -125,7 +125,7 @@ export const AddItemsWrapper = styled.div`
     color: ${(props) => props.theme['gray-900']};
 
     text-align: center;
-    max-width: 0.875rem;
+    max-width: 1.2rem;
     background transparent;
 
     &:focus {
