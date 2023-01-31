@@ -19,8 +19,13 @@ import {
 
 export function CartContentsContainer() {
   const currentTheme = useTheme()
-  const { getItemsData, calculateTotalCartPrice, removeItemFromCart } =
-    useProductsInCartContext()
+  const {
+    getItemsData,
+    calculateTotalCartPrice,
+    incrementCartItemAmount,
+    decrementCartItemAmount,
+    removeItemFromCart,
+  } = useProductsInCartContext()
 
   const itemsRetrieved = getItemsData()
   const totalCartPrice = calculateTotalCartPrice()
@@ -46,24 +51,36 @@ export function CartContentsContainer() {
 
                       <div>
                         <AddItemsWrapper>
-                          <Minus
-                            size={14}
-                            color={currentTheme['purple-700']}
-                            cursor="pointer"
-                            alt="Remove 1 more"
-                          />
+                          <button
+                            onClick={() => {
+                              decrementCartItemAmount(product.id)
+                            }}
+                          >
+                            <Minus
+                              size={14}
+                              color={currentTheme['purple-700']}
+                              cursor="pointer"
+                              alt="Remove 1 more"
+                            />
+                          </button>
                           <input
                             type="text"
                             inputMode="numeric"
-                            placeholder="1"
+                            value={product.quantity ? product.quantity : 1}
                             readOnly
                           />
-                          <Plus
-                            size={14}
-                            color={currentTheme['purple-700']}
-                            cursor="pointer"
-                            alt="Add 1 more"
-                          />
+                          <button
+                            onClick={() => {
+                              incrementCartItemAmount(product.id)
+                            }}
+                          >
+                            <Plus
+                              size={14}
+                              color={currentTheme['purple-700']}
+                              cursor="pointer"
+                              alt="Add 1 more"
+                            />
+                          </button>
                         </AddItemsWrapper>
 
                         <RemoveItemButton
