@@ -56,6 +56,7 @@ export function CartContentsContainer() {
                             type="text"
                             inputMode="numeric"
                             placeholder="1"
+                            readOnly
                           />
                           <Plus
                             size={14}
