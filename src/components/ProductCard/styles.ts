@@ -141,5 +141,9 @@ export const AddItemsWrapper = styled.div`
     border: none;
     background: transparent;
     display: flex;
+
+    &:focus {
+      box-shadow: none;
+    }
   }
 `
