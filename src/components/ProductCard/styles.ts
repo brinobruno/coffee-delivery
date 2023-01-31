@@ -136,4 +136,10 @@ export const AddItemsWrapper = styled.div`
       color: ${(props) => props.theme['purple-700']}
     }
   }
+
+  button {
+    border: none;
+    background: transparent;
+    display: flex;
+  }
 `
