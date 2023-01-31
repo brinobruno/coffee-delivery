@@ -8,8 +8,12 @@ import {
   AddItemsWrapper,
   TagsContainer,
 } from './styles'
-import { IProductCard } from '../../contexts/ProductsInCartContext'
+import {
+  IProductCard,
+  useProductsInCartContext,
+} from '../../contexts/ProductsInCartContext'
 import { formatPrice } from '../../utils/formatPrice'
+import { useState } from 'react'
 
 export interface ProductsRepositoryData extends Array<IProductCard> {}
 
@@ -23,6 +27,17 @@ export function ProductCard({
   addItemToCart,
 }: IProductCard) {
   const currentTheme = useTheme()
+  const { incrementCartItemAmount, decrementCartItemAmount } =
+    useProductsInCartContext()
+  const [quantity, setQuantity] = useState(1)
+
+  function handleIncrease() {
+    setQuantity((state) => state + 1)
+  }
+
+  function handleDecrease() {
+    setQuantity((state) => state - 1)
+  }
 
   return (
     <ProductCardContainer>
@@ -47,19 +62,33 @@ export function ProductCard({
 
         <div>
           <AddItemsWrapper>
-            <Minus
-              size={14}
-              color={currentTheme['purple-700']}
-              cursor="pointer"
-              alt="Remove 1 more"
-            />
-            <input type="text" inputMode="numeric" placeholder="1" />
-            <Plus
-              size={14}
-              color={currentTheme['purple-700']}
-              cursor="pointer"
-              alt="Add 1 more"
-            />
+            <button
+              onClick={() => {
+                decrementCartItemAmount(id)
+                handleDecrease()
+              }}
+            >
+              <Minus
+                size={14}
+                color={currentTheme['purple-700']}
+                cursor="pointer"
+                alt="Remove 1 more"
+              />
+            </button>
+            <input type="text" inputMode="numeric" value={quantity} readOnly />
+            <button
+              onClick={() => {
+                incrementCartItemAmount(id)
+                handleIncrease()
+              }}
+            >
+              <Plus
+                size={14}
+                color={currentTheme['purple-700']}
+                cursor="pointer"
+                alt="Add 1 more"
+              />
+            </button>
           </AddItemsWrapper>
 
           <CartWrapper
