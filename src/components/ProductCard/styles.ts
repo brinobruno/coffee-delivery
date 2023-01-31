@@ -100,14 +100,20 @@ export const CartWrapper = styled.div`
   gap: 4px;
   padding: 8px;
   border-radius: 6px;
+  cursor: pointer;
 
   span {
     width: 100%;
   }
   background: ${(props) => props.theme['purple-700']};
+  transition: background 0.3s ease-in-out;
 
   span {
     color: ${(props) => props.theme['yellow-700']};
+  }
+
+  &:hover {
+    background: ${(props) => props.theme['purple-500']};
   }
 `
 
