@@ -21,6 +21,7 @@ export interface IProductCard {
   title: string
   description: string
   price: number
+  quantity?: number | null
   addItemToCart?: (item: IProductInCartData) => void
 }
 
@@ -129,9 +130,15 @@ export const useProductsInCartContext = () => {
 
   function getItemsData() {
     const itemsIds = itemsInCart.map((item) => item.id)
-
     const itemsRetrieved = PRODUCTS_REPOSITORY.filter((product) => {
       return itemsIds.includes(product.id)
+    })
+
+    itemsRetrieved.forEach((product) => {
+      const itemInCart = itemsInCart.find((item) => item.id === product.id)
+      if (itemInCart) {
+        product.quantity = itemInCart.quantity
+      }
     })
 
     return itemsRetrieved
