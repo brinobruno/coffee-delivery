@@ -83,6 +83,40 @@ export const useProductsInCartContext = () => {
     setItemsInCart(updatedItems)
   }
 
+  function incrementCartItemAmount(itemId: number) {
+    const itemExists = itemsInCart.find((item) => item.id === itemId)
+    if (itemExists) {
+      const newCartItem = itemsInCart.map((cartItem: IProductInCartData) => {
+        if (cartItem.id === itemId) {
+          cartItem.quantity += 1
+        }
+        return cartItem
+      })
+
+      setItemsInCart(newCartItem)
+    }
+  }
+
+  const decrementCartItemAmount = (itemId: number) => {
+    const cartWithUpdatedAmount = itemsInCart.map(
+      (cartItem: IProductInCartData) => {
+        if (cartItem.id === itemId) {
+          const shouldRemoveItem = cartItem.quantity - 1 === 0
+
+          return shouldRemoveItem
+            ? undefined
+            : { ...cartItem, quantity: cartItem.quantity - 1 }
+        }
+
+        return cartItem
+      },
+    )
+
+    setItemsInCart(
+      cartWithUpdatedAmount.filter((item) => !!item) as IProductInCartData[],
+    )
+  }
+
   function getTotalQuantity() {
     let totalAmount: number = 0
 
@@ -122,6 +156,8 @@ export const useProductsInCartContext = () => {
     setItemsInCart,
     addItemToCart,
     removeItemFromCart,
+    incrementCartItemAmount,
+    decrementCartItemAmount,
     getTotalQuantity,
     getItemsData,
     calculateTotalCartPrice,
