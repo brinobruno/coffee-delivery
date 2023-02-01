@@ -1,26 +1,26 @@
 # Coffee Delivery
 
 ### Todo
-[X] - List of products (coffees) available for purchase
+- [X] List of products (coffees) available for purchase
 
-[ ] - Add a specific amount of items to the cart
+- [ ] Add a specific amount of items to the cart
 
-[ ] - Increase or remove the amount of items in the cart
+- [ ] Increase or remove the amount of items in the cart
 
-[X] - Form for the user to fill in his address
+- [X] Form for the user to fill in his address
 
-[X] - Display the total items in the cart in the Header
+- [X] Display the total items in the cart in the Header
 
-[X] - Display the total value of the sum of items in the cart multiplied by the value
+- [X] Display the total value of the sum of items in the cart multiplied by the value
 
-[ ] - Move useThemeContext to a separate hook file
+- [X] Move useThemeContext to a separate hook file
 
-[X] - Make price formatting method
+- [X] Make price formatting method
 
-[X] - Move product interface declaration to context file
+- [X] Move product interface declaration to context file
 
 ### Extra features
-[X] - Dark mode - 2 styled themes
+- [X] Dark mode - 2 styled themes
 
 ### Concepts
 - States
