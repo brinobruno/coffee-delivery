@@ -3,9 +3,9 @@
 ### Todo
 - [X] List of products (coffees) available for purchase
 
-- [ ] Add a specific amount of items to the cart
+- [X] Add a specific amount of items to the cart
 
-- [ ] Increase or remove the amount of items in the cart
+- [X] Increase or remove the amount of items in the cart
 
 - [X] Form for the user to fill in his address
 
@@ -18,6 +18,8 @@
 - [X] Make price formatting method
 
 - [X] Move product interface declaration to context file
+
+- [ ] Make checkout form work properly
 
 ### Extra features
 - [X] Dark mode - 2 styled themes
