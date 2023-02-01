@@ -56,26 +56,23 @@ export function CheckoutForm() {
     setPaymentMethod(event.target.value)
   }
 
-  const { /* register,  watch, */ reset, handleSubmit } =
-    useForm<CheckoutFormData>({
-      resolver: zodResolver(checkoutFormValidationSchema),
-      defaultValues: {
-        zip: 0,
-        streetAddress: '',
-        houseNumber: 0,
-        reference: '',
-        zone: '',
-        city: '',
-        uf: '',
-      },
-    })
+  const { register, reset, handleSubmit } = useForm<CheckoutFormData>({
+    resolver: zodResolver(checkoutFormValidationSchema),
+    defaultValues: {
+      zip: 0,
+      streetAddress: '',
+      houseNumber: 0,
+      reference: '',
+      zone: '',
+      city: '',
+      uf: '',
+    },
+  })
 
   function handleCreateNewCheckout(data: CheckoutFormData) {
     console.log(data)
     reset()
   }
-
-  // const name = watch('name')
 
   return (
     <FormContainer onSubmit={handleSubmit(handleCreateNewCheckout)}>
@@ -95,43 +92,71 @@ export function CheckoutForm() {
           <DeliveryDetailsLineContainer>
             <DeliveryInputOneThird>
               <label>ZIP</label>
-              <DeliveryDetailsInputBase />
+              <DeliveryDetailsInputBase
+                id="zip"
+                type="number"
+                {...register('zip')}
+              />
             </DeliveryInputOneThird>
           </DeliveryDetailsLineContainer>
 
           <DeliveryDetailsLineContainer>
             <DeliveryInputFullWidth>
               <label>Street</label>
-              <DeliveryDetailsInputBase />
+              <DeliveryDetailsInputBase
+                id="street"
+                type="text"
+                {...register('streetAddress')}
+              />
             </DeliveryInputFullWidth>
           </DeliveryDetailsLineContainer>
 
           <DeliveryDetailsLineContainer>
             <DeliveryInputOneThird>
               <label>Number</label>
-              <DeliveryDetailsInputBase />
+              <DeliveryDetailsInputBase
+                id="number"
+                type="number"
+                {...register('houseNumber')}
+              />
             </DeliveryInputOneThird>
 
             <DeliveryInputTwoThirds>
               <label>Reference</label>
-              <DeliveryDetailsInputBase />
+              <DeliveryDetailsInputBase
+                id="reference"
+                type="text"
+                {...register('reference')}
+              />
             </DeliveryInputTwoThirds>
           </DeliveryDetailsLineContainer>
 
           <DeliveryDetailsLineContainer>
             <DeliveryInputOneThird>
               <label>Zone</label>
-              <DeliveryDetailsInputBase />
+              <DeliveryDetailsInputBase
+                id="zone"
+                type="text"
+                {...register('zone')}
+              />
             </DeliveryInputOneThird>
 
             <DeliveryInputTwoThirds>
               <label>City</label>
-              <DeliveryDetailsInputBase />
+              <DeliveryDetailsInputBase
+                id="city"
+                type="text"
+                {...register('city')}
+              />
             </DeliveryInputTwoThirds>
 
             <DeliveryInputSmall>
               <label>UF</label>
-              <DeliveryDetailsInputBase />
+              <DeliveryDetailsInputBase
+                id="uf"
+                type="text"
+                {...register('uf')}
+              />
             </DeliveryInputSmall>
           </DeliveryDetailsLineContainer>
         </DeliveryDetailsBlock>
