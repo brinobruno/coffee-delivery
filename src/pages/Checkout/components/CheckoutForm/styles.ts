@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const FormContainer = styled.form`
   width: 57%;
+
+  @media (max-width: 1100px) {
+    width: 100%;
+  }
 `
 
 export const DeliveryDetails = styled.div`
