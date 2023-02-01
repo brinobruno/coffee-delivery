@@ -31,12 +31,9 @@ import {
 const checkoutFormValidationSchema = zod.object({
   // name: zod.string().min(2, 'Inform your name'),
   // email: zod.string().email().min(2, 'Inform your name'),
-  zip: zod.number().min(8, 'Inform your ZIP code'),
+  zip: zod.number().gte(8, 'ZIP code not valid'),
   streetAddress: zod.string(),
-  houseNumber: zod
-    .number()
-    .min(1, 'The house should be 1 character minimum')
-    .max(5, 'The house number should have 5 characters maximum'),
+  houseNumber: zod.number().min(1, 'The house should be 1 character minimum'),
   reference: zod.string().optional(),
   zone: zod.string().min(2, 'Inform your zone area name'),
   city: zod.string().min(2, 'Inform your city name'),
@@ -57,7 +54,7 @@ export function CheckoutForm() {
     setPaymentMethod(event.target.value)
   }
 
-  const { register, reset, handleSubmit } = useForm<CheckoutFormData>({
+  const newCheckoutForm = useForm<CheckoutFormData>({
     resolver: zodResolver(checkoutFormValidationSchema),
     defaultValues: {
       streetAddress: '',
@@ -69,8 +66,19 @@ export function CheckoutForm() {
     },
   })
 
+  const {
+    register,
+    reset,
+    // watch,
+    handleSubmit,
+    formState: { errors },
+  } = newCheckoutForm
+
+  // const zipp = watch('zip')
+
   function handleCreateNewCheckout(data: CheckoutFormData) {
     console.log(data)
+    // console.log(zipp)
     reset()
   }
 
@@ -95,7 +103,7 @@ export function CheckoutForm() {
               <DeliveryDetailsInputBase
                 id="zip"
                 type="number"
-                {...register('zip')}
+                {...register('zip', { valueAsNumber: true })}
               />
             </DeliveryInputOneThird>
           </DeliveryDetailsLineContainer>
@@ -117,7 +125,7 @@ export function CheckoutForm() {
               <DeliveryDetailsInputBase
                 id="number"
                 type="number"
-                {...register('houseNumber')}
+                {...register('houseNumber', { valueAsNumber: true })}
               />
             </DeliveryInputOneThird>
 
@@ -216,6 +224,16 @@ export function CheckoutForm() {
           </div>
         </PaymentDetailsBlock>
       </DeliveryDetails>
+
+      {errors.zip && <p>Zip: {errors.zip?.message}</p>}
+      {errors.streetAddress && <p>Street: {errors.streetAddress?.message}</p>}
+      {errors.houseNumber && <p>Number: {errors.houseNumber?.message}</p>}
+      {errors.reference && <p>Reference: {errors.reference?.message}</p>}
+      {errors.zone && <p>Zone: {errors.zone?.message}</p>}
+      {errors.city && <p>City: {errors.city?.message}</p>}
+      {errors.uf && <p>UF: {errors.uf?.message}</p>}
+      {errors.payment && <p>Payment: {errors.payment?.message}</p>}
+      <button type="submit">Submit me</button>
     </FormContainer>
   )
 }
