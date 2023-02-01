@@ -41,6 +41,7 @@ const checkoutFormValidationSchema = zod.object({
   zone: zod.string().min(2, 'Inform your zone area name'),
   city: zod.string().min(2, 'Inform your city name'),
   uf: zod.string().length(2, 'Inform your UF code'),
+  payment: zod.string(),
 })
 
 type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
@@ -64,6 +65,7 @@ export function CheckoutForm() {
       zone: '',
       city: '',
       uf: '',
+      payment: '',
     },
   })
 
@@ -178,6 +180,7 @@ export function CheckoutForm() {
                   type="radio"
                   value="credit"
                   checked={paymentMethod === 'credit'}
+                  {...register('payment')}
                   onChange={handleChangePaymentMethod}
                 />
               </PaymentDetailLabel>
@@ -191,6 +194,7 @@ export function CheckoutForm() {
                   type="radio"
                   value="debit"
                   checked={paymentMethod === 'debit'}
+                  {...register('payment')}
                   onChange={handleChangePaymentMethod}
                 />
               </PaymentDetailLabel>
@@ -204,6 +208,7 @@ export function CheckoutForm() {
                   type="radio"
                   value="cash"
                   checked={paymentMethod === 'cash'}
+                  {...register('payment')}
                   onChange={handleChangePaymentMethod}
                 />
               </PaymentDetailLabel>
