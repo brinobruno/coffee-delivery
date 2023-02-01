@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm /*, useFormContext */ } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTheme } from 'styled-components'
@@ -29,14 +29,25 @@ import {
 } from './styles'
 
 const checkoutFormValidationSchema = zod.object({
-  name: zod.string().min(2, 'Inform your name'),
+  // name: zod.string().min(2, 'Inform your name'),
+  // email: zod.string().email().min(2, 'Inform your name'),
   zip: zod.number().min(8, 'Inform your ZIP code'),
+  streetAddress: zod.string(),
+  houseNumber: zod
+    .number()
+    .min(1, 'The house should be 1 character minimum')
+    .max(5, 'The house number should have 5 characters maximum'),
+  reference: zod.string().optional(),
+  zone: zod.string().min(2, 'Inform your zone area name'),
+  city: zod.string().min(2, 'Inform your city name'),
+  uf: zod.string().length(2, 'Inform your UF code'),
 })
 
 type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
 
 export function CheckoutForm() {
   const currentTheme = useTheme()
+  // const { register } = useFormContext()
   const [paymentMethod, setPaymentMethod] = useState('')
 
   const handleChangePaymentMethod = (
@@ -49,8 +60,13 @@ export function CheckoutForm() {
     useForm<CheckoutFormData>({
       resolver: zodResolver(checkoutFormValidationSchema),
       defaultValues: {
-        name: '',
         zip: 0,
+        streetAddress: '',
+        houseNumber: 0,
+        reference: '',
+        zone: '',
+        city: '',
+        uf: '',
       },
     })
 
