@@ -59,9 +59,7 @@ export function CheckoutForm() {
   const { register, reset, handleSubmit } = useForm<CheckoutFormData>({
     resolver: zodResolver(checkoutFormValidationSchema),
     defaultValues: {
-      zip: 0,
       streetAddress: '',
-      houseNumber: 0,
       reference: '',
       zone: '',
       city: '',
