@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { CheckoutContentsBlockBase } from '../../styles'
+import { CheckoutContentsBlockBase } from './../CheckoutForm/styles'
 
 export const CartContents = styled.div`
   width: 40%;
