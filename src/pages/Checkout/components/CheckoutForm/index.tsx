@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useForm /*, useFormContext */ } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -45,8 +46,8 @@ type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
 
 export function CheckoutForm() {
   const currentTheme = useTheme()
-  // const { register } = useFormContext()
   const [paymentMethod, setPaymentMethod] = useState('')
+  const navigate = useNavigate()
 
   const handleChangePaymentMethod = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -69,16 +70,15 @@ export function CheckoutForm() {
   const {
     register,
     reset,
-    // watch,
     handleSubmit,
     formState: { errors },
   } = newCheckoutForm
 
-  // const zipp = watch('zip')
-
   function handleCreateNewCheckout(data: CheckoutFormData) {
     console.log(data)
-    // console.log(zipp)
+    navigate('/success', {
+      state: data,
+    })
     reset()
   }
 
@@ -233,7 +233,6 @@ export function CheckoutForm() {
       {errors.city && <p>City: {errors.city?.message}</p>}
       {errors.uf && <p>UF: {errors.uf?.message}</p>}
       {errors.payment && <p>Payment: {errors.payment?.message}</p>}
-      <button type="submit">Submit me</button>
     </FormContainer>
   )
 }

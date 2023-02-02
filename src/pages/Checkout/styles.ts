@@ -5,7 +5,7 @@ export const CheckoutContainer = styled.section`
   padding-top: 2.5rem;
 `
 
-export const CheckoutWrapper = styled.div`
+export const CheckoutWrapper = styled.form`
   display: flex;
   justify-content: space-between;
   gap: 2rem;
