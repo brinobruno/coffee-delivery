@@ -84,10 +84,8 @@ export function CheckoutForm() {
 
   return (
     <FormContainer
-      onSubmit={(e) => {
-        e.preventDefault()
-        handleSubmit(handleCreateNewCheckout)
-      }}
+      id="checkout-form"
+      onSubmit={handleSubmit(handleCreateNewCheckout)}
     >
       <DeliveryDetails>
         <h3>Complete your order</h3>
