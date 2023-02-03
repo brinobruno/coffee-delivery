@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   width: 57%;
 
   @media (max-width: 1100px) {
