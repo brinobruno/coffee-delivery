@@ -43,7 +43,7 @@ const checkoutFormValidationSchema = zod.object({
   payment: zod.string(),
 })
 
-type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
+export type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
 
 export function CheckoutForm() {
   const currentTheme = useTheme()

@@ -1,6 +1,9 @@
+import { useEffect } from 'react'
 import { useTheme } from 'styled-components'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Clock, CurrencyDollar, MapPin } from 'phosphor-react'
 
+import { CheckoutFormData } from '../Checkout/components/CheckoutForm'
 import SuccessIllustration from './../../assets/order-success-illustration.svg'
 import {
   CheckoutSuccessContainer,
@@ -9,8 +12,22 @@ import {
   SuccessDetailsItem,
 } from './styles'
 
+interface LocationType {
+  state: CheckoutFormData
+}
+
 export function CheckoutSuccess() {
   const currentTheme = useTheme()
+  const navigate = useNavigate()
+  const { state } = useLocation() as unknown as LocationType
+
+  useEffect(() => {
+    if (!state) {
+      navigate('/')
+    }
+  })
+
+  if (!state) return <></>
 
   return (
     <CheckoutSuccessContainer>
@@ -32,9 +49,12 @@ export function CheckoutSuccess() {
               <div>
                 <span>
                   Delivery to
-                  <strong> John Daniel Martinelli Street, 102</strong>
+                  <strong>
+                    {' '}
+                    {state.streetAddress}, {state.houseNumber}
+                  </strong>
                   <br />
-                  Neighborhood - São Paulo, SP
+                  {state.zone} - {state.city}, {state.uf}
                 </span>
               </div>
             </SuccessDetailsItem>
@@ -70,7 +90,7 @@ export function CheckoutSuccess() {
                 <span>
                   Payment on delivery
                   <br />
-                  <strong>Credit Card</strong>
+                  <strong>{state.payment}</strong>
                 </span>
               </div>
             </SuccessDetailsItem>
