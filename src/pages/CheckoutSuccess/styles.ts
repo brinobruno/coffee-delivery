@@ -106,5 +106,9 @@ export const SuccessDetailsItem = styled.li<SuccessDetailItem>`
     font-size: 1rem;
     line-height: 20px;
     color: ${(props) => props.theme['gray-700']};
+
+    strong {
+      text-transform: capitalize;
+    }
   }
 `
