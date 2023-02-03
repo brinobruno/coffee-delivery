@@ -125,7 +125,7 @@ export function CartContentsContainer() {
                 <strong>{formatPrice(totalOrderPrice)}</strong>
               </div>
 
-              <ConfirmOrderButton type="submit">
+              <ConfirmOrderButton form="checkout-form" type="submit">
                 Confirm order
               </ConfirmOrderButton>
             </CartTotalSum>
