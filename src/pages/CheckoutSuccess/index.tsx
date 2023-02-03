@@ -1,13 +1,13 @@
+import { useTheme } from 'styled-components'
+import { Clock, CurrencyDollar, MapPin } from 'phosphor-react'
+
+import SuccessIllustration from './../../assets/order-success-illustration.svg'
 import {
   CheckoutSuccessContainer,
   CheckoutSuccessWrapper,
   SuccessDetails,
   SuccessDetailsItem,
 } from './styles'
-
-import SuccessIllustration from './../../assets/order-success-illustration.svg'
-import { Clock, CurrencyDollar, MapPin } from 'phosphor-react'
-import { useTheme } from 'styled-components'
 
 export function CheckoutSuccess() {
   const currentTheme = useTheme()
