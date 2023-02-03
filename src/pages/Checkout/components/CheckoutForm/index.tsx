@@ -4,7 +4,6 @@ import { useForm /*, useFormContext */ } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTheme } from 'styled-components'
-
 import {
   Bank,
   CreditCard,
@@ -13,6 +12,7 @@ import {
   Money,
 } from 'phosphor-react'
 
+import { useProductsInCartContext } from './../../../../contexts/ProductsInCartContext'
 import {
   DeliveryDetails,
   FormContainer,
@@ -47,6 +47,7 @@ type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
 
 export function CheckoutForm() {
   const currentTheme = useTheme()
+  const { emptyCart } = useProductsInCartContext()
   const [paymentMethod, setPaymentMethod] = useState('')
   const navigate = useNavigate()
 
@@ -76,10 +77,10 @@ export function CheckoutForm() {
   } = newCheckoutForm
 
   function handleCreateNewCheckout(data: CheckoutFormData) {
-    console.log(data)
     navigate('/success', {
       state: data,
     })
+    emptyCart()
     reset()
   }
 
