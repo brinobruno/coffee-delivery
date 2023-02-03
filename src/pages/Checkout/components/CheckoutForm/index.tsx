@@ -27,6 +27,7 @@ import {
   PaymentDetailOption,
   PaymentDetailLabel,
   PaymentDetailRadio,
+  ErrorsContainer,
 } from './styles'
 
 const checkoutFormValidationSchema = zod.object({
@@ -228,14 +229,56 @@ export function CheckoutForm() {
         </PaymentDetailsBlock>
       </DeliveryDetails>
 
-      {errors.zip && <p>Zip: {errors.zip?.message}</p>}
-      {errors.streetAddress && <p>Street: {errors.streetAddress?.message}</p>}
-      {errors.houseNumber && <p>Number: {errors.houseNumber?.message}</p>}
-      {errors.reference && <p>Reference: {errors.reference?.message}</p>}
-      {errors.zone && <p>Zone: {errors.zone?.message}</p>}
-      {errors.city && <p>City: {errors.city?.message}</p>}
-      {errors.uf && <p>UF: {errors.uf?.message}</p>}
-      {errors.payment && <p>Payment: {errors.payment?.message}</p>}
+      <ErrorsContainer>
+        {errors.zip && (
+          <p>
+            <strong>ZIP: </strong>
+            {errors.zip?.message}
+          </p>
+        )}
+        {errors.streetAddress && (
+          <p>
+            <strong>Street: </strong>
+            {errors.streetAddress?.message}
+          </p>
+        )}
+        {errors.houseNumber && (
+          <p>
+            <strong>Number: </strong>
+            {errors.houseNumber?.message}
+          </p>
+        )}
+        {errors.reference && (
+          <p>
+            <strong>Reference: </strong>
+            {errors.reference?.message}
+          </p>
+        )}
+        {errors.zone && (
+          <p>
+            <strong>Zone: </strong>
+            {errors.zone?.message}
+          </p>
+        )}
+        {errors.city && (
+          <p>
+            <strong>City: </strong>
+            {errors.city?.message}
+          </p>
+        )}
+        {errors.uf && (
+          <p>
+            <strong>UF: </strong>
+            {errors.uf?.message}
+          </p>
+        )}
+        {errors.payment && (
+          <p>
+            <strong>Payment: </strong>
+            {errors.payment?.message}
+          </p>
+        )}
+      </ErrorsContainer>
     </FormContainer>
   )
 }
