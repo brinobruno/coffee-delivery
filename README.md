@@ -19,7 +19,9 @@
 
 - [X] Move product interface declaration to context file
 
-- [ ] Make checkout form work properly
+- [X] Make checkout form work properly
+
+- [ ] Add name and other checkout fields to form
 
 ### Extra features
 - [X] Dark mode - 2 styled themes
