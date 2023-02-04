@@ -13,6 +13,7 @@ import {
 } from 'phosphor-react'
 
 import { useProductsInCartContext } from './../../../../contexts/ProductsInCartContext'
+import { ErrorsDisplay } from './components/ErrorsDisplay'
 import {
   DeliveryDetails,
   FormContainer,
@@ -27,7 +28,6 @@ import {
   PaymentDetailOption,
   PaymentDetailLabel,
   PaymentDetailRadio,
-  ErrorsContainer,
 } from './styles'
 
 const checkoutFormValidationSchema = zod.object({
@@ -232,56 +232,7 @@ export function CheckoutForm() {
         </PaymentDetailsBlock>
       </DeliveryDetails>
 
-      <ErrorsContainer>
-        {errors.zip && (
-          <p>
-            <strong>ZIP: </strong>
-            {errors.zip?.message}
-          </p>
-        )}
-        {errors.streetAddress && (
-          <p>
-            <strong>Street: </strong>
-            {errors.streetAddress?.message}
-          </p>
-        )}
-        {errors.houseNumber && (
-          <p>
-            <strong>Number: </strong>
-            {errors.houseNumber?.message}
-          </p>
-        )}
-        {errors.reference && (
-          <p>
-            <strong>Reference: </strong>
-            {errors.reference?.message}
-          </p>
-        )}
-        {errors.zone && (
-          <p>
-            <strong>Zone: </strong>
-            {errors.zone?.message}
-          </p>
-        )}
-        {errors.city && (
-          <p>
-            <strong>City: </strong>
-            {errors.city?.message}
-          </p>
-        )}
-        {errors.uf && (
-          <p>
-            <strong>UF: </strong>
-            {errors.uf?.message}
-          </p>
-        )}
-        {errors.payment && (
-          <p>
-            <strong>Payment: </strong>
-            {errors.payment?.message}
-          </p>
-        )}
-      </ErrorsContainer>
+      <ErrorsDisplay errorsDetected={errors} />
     </FormContainer>
   )
 }
