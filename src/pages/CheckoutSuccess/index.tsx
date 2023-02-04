@@ -22,6 +22,7 @@ export function CheckoutSuccess() {
   const navigate = useNavigate()
   const { state } = useLocation() as unknown as LocationType
 
+  // Verification purpose is to disallow users without any order to access it
   useEffect(() => {
     if (!state) {
       navigate('/')
