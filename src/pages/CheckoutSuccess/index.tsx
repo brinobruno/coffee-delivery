@@ -3,6 +3,7 @@ import { useTheme } from 'styled-components'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Clock, CurrencyDollar, MapPin } from 'phosphor-react'
 
+import { IProductCard } from '../../contexts/ProductsInCartContext'
 import { CheckoutFormData } from '../Checkout/components/CheckoutForm'
 import SuccessIllustration from './../../assets/order-success-illustration.svg'
 import {
@@ -13,7 +14,7 @@ import {
 } from './styles'
 
 interface LocationType {
-  state: CheckoutFormData
+  state: { data: CheckoutFormData; itemsRetrieved: IProductCard[] }
 }
 
 export function CheckoutSuccess() {
@@ -51,10 +52,10 @@ export function CheckoutSuccess() {
                   Delivery to
                   <strong>
                     {' '}
-                    {state.streetAddress}, {state.houseNumber}
+                    {state.data.streetAddress}, {state.data.houseNumber}
                   </strong>
                   <br />
-                  {state.zone} - {state.city}, {state.uf}
+                  {state.data.zone} - {state.data.city}, {state.data.uf}
                 </span>
               </div>
             </SuccessDetailsItem>
@@ -90,7 +91,7 @@ export function CheckoutSuccess() {
                 <span>
                   Payment on delivery
                   <br />
-                  <strong>{state.payment}</strong>
+                  <strong>{state.data.payment}</strong>
                 </span>
               </div>
             </SuccessDetailsItem>
