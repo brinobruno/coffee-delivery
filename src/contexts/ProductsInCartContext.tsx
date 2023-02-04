@@ -4,6 +4,7 @@ import {
   SetStateAction,
   createContext,
   useContext,
+  useEffect,
   useState,
 } from 'react'
 import { PRODUCTS_REPOSITORY } from '../repository/products'
@@ -36,10 +37,18 @@ export interface IProductsInCartProviderProps {
 
 export const ProductsInCartContext = createContext({} as IProductsInCart)
 
+const COFFEE_ITEMS_STORAGE_KEY = '@coffee-delivery:items-in-cart-1.0.0'
+
 export const ProductsInCartProvider = ({
   children,
 }: IProductsInCartProviderProps) => {
-  const [itemsInCart, setItemsInCart] = useState<IProductInCartData[]>([])
+  const [itemsInCart, setItemsInCart] = useState<IProductInCartData[]>(() => {
+    const storedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY)
+    if (storedCartItems) {
+      return JSON.parse(storedCartItems)
+    }
+    return []
+  })
 
   return (
     <ProductsInCartContext.Provider value={{ itemsInCart, setItemsInCart }}>
@@ -157,6 +166,10 @@ export const useProductsInCartContext = () => {
 
     return totalPriceAmount
   }
+
+  useEffect(() => {
+    localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(itemsInCart))
+  }, [itemsInCart])
 
   return {
     itemsInCart,
