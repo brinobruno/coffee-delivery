@@ -23,6 +23,8 @@
 
 - [ ] Add name and other checkout fields to form
 
+- [X] Add itemsInCart state to localStorage
+
 ### Extra features
 - [X] Dark mode - 2 styled themes
 
