@@ -47,9 +47,11 @@ export type CheckoutFormData = zod.infer<typeof checkoutFormValidationSchema>
 
 export function CheckoutForm() {
   const currentTheme = useTheme()
-  const { emptyCart } = useProductsInCartContext()
+  const { getItemsData, emptyCart } = useProductsInCartContext()
   const [paymentMethod, setPaymentMethod] = useState('')
   const navigate = useNavigate()
+
+  const itemsRetrieved = getItemsData()
 
   const handleChangePaymentMethod = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -78,7 +80,7 @@ export function CheckoutForm() {
 
   function handleCreateNewCheckout(data: CheckoutFormData) {
     navigate('/success', {
-      state: data,
+      state: { data, itemsRetrieved },
     })
     emptyCart()
     reset()
