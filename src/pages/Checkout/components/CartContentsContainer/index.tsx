@@ -5,6 +5,7 @@ import { Minus, Plus, Trash } from 'phosphor-react'
 import { AddItemsWrapper } from '../../../../components/ProductCard/styles'
 import { useProductsInCartContext } from '../../../../contexts/ProductsInCartContext'
 import { formatPrice } from '../../../../utils/formatPrice'
+import { DELIVERY_FLAT_RATE } from '../../../../constants'
 import {
   CartContents,
   ConfirmOrderButton,
@@ -29,8 +30,6 @@ export function CartContentsContainer() {
 
   const itemsRetrieved = getItemsData()
   const totalCartPrice = calculateTotalCartPrice()
-
-  const DELIVERY_FLAT_RATE: number = 3.5
 
   const totalOrderPrice = totalCartPrice + DELIVERY_FLAT_RATE
 
