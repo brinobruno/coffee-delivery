@@ -96,10 +96,10 @@ export function CheckoutForm() {
 
   const { streetAddress, zone, uf, city } = zipAutoInfo
 
+  const zip = watch('zip')
+
   useEffect(() => {
     const getZipInfo = async () => {
-      const zip = watch('zip')
-
       if (zip.toString().length === 8) {
         const response = await db.get(`/${zip}/json`)
 
@@ -116,7 +116,7 @@ export function CheckoutForm() {
     }
 
     getZipInfo()
-  }, [watch('zip')])
+  }, [zip])
 
   return (
     <FormContainer
