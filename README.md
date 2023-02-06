@@ -28,7 +28,7 @@
 
 - [X] Add itemsInCart state to localStorage
 
-- [ ] Autofill user's address on ZIP code input
+- [X] Autofill user's address on ZIP code input
 
 ### Concepts
 - States
