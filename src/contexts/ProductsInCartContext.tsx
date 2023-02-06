@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from 'react'
+import { COFFEE_ITEMS_STORAGE_KEY } from './../constants'
 import { PRODUCTS_REPOSITORY } from '../repository/products'
 
 export interface IProductInCartData {
@@ -36,8 +37,6 @@ export interface IProductsInCartProviderProps {
 }
 
 export const ProductsInCartContext = createContext({} as IProductsInCart)
-
-const COFFEE_ITEMS_STORAGE_KEY = '@coffee-delivery:items-in-cart-1.0.0'
 
 export const ProductsInCartProvider = ({
   children,
