@@ -12,6 +12,7 @@ import {
   Money,
 } from 'phosphor-react'
 
+import { db } from '../../../../services/zip.api'
 import { useProductsInCartContext } from './../../../../contexts/ProductsInCartContext'
 import { ErrorsDisplay } from './components/ErrorsDisplay'
 import {
@@ -49,8 +50,12 @@ export function CheckoutForm() {
   const currentTheme = useTheme()
   const { getItemsData, emptyCart } = useProductsInCartContext()
   const [paymentMethod, setPaymentMethod] = useState('')
-  const [zipAutocomplete, setZipAutocomplete] = useState(0)
-  const [addressesAutocompleted, setAddressesAutocompleted] = useState({})
+  const [zipAutoInfo, setZipAutoInfo] = useState({
+    streetAddress: '',
+    zone: '',
+    uf: '',
+    city: '',
+  })
   const navigate = useNavigate()
 
   const itemsRetrieved = getItemsData()
@@ -74,6 +79,7 @@ export function CheckoutForm() {
   })
 
   const {
+    watch,
     register,
     reset,
     handleSubmit,
@@ -88,27 +94,29 @@ export function CheckoutForm() {
     reset()
   }
 
-  function handleTrackZipForAutocomplete(e: Event) {
-    setZipAutocomplete(parseInt((e.target as HTMLInputElement).value))
-  }
-
-  const URL = `https://viacep.com.br/ws/${zipAutocomplete}/json/`
+  const { streetAddress, zone, uf, city } = zipAutoInfo
 
   useEffect(() => {
-    if (zipAutocomplete.toString().length === 8) {
-      fetch(URL, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'content-type': 'application/json;charset=utf-8',
-        },
-      }).then((data) => {
-        setAddressesAutocompleted(data.json())
-      })
-    }
-  }, [URL, zipAutocomplete])
+    const getZipInfo = async () => {
+      const zip = watch('zip')
 
-  console.log(addressesAutocompleted)
+      if (zip.toString().length === 8) {
+        const response = await db.get(`/${zip}/json`)
+
+        const newZipInfo = {
+          streetAddress: response.data.logradouro,
+          zone: response.data.bairro,
+          uf: response.data.uf,
+          city: response.data.localidade,
+        }
+        setZipAutoInfo(newZipInfo)
+      } else {
+        setZipAutoInfo({ streetAddress: '', zone: '', uf: '', city: '' })
+      }
+    }
+
+    getZipInfo()
+  }, [watch('zip')])
 
   return (
     <FormContainer
@@ -135,7 +143,6 @@ export function CheckoutForm() {
                 id="zip"
                 type="number"
                 {...register('zip', { valueAsNumber: true })}
-                onChange={() => handleTrackZipForAutocomplete}
               />
             </DeliveryInputOneThird>
           </DeliveryDetailsLineContainer>
@@ -147,6 +154,7 @@ export function CheckoutForm() {
                 id="street"
                 type="text"
                 {...register('streetAddress')}
+                value={streetAddress}
               />
             </DeliveryInputFullWidth>
           </DeliveryDetailsLineContainer>
@@ -178,6 +186,7 @@ export function CheckoutForm() {
                 id="zone"
                 type="text"
                 {...register('zone')}
+                value={zone}
               />
             </DeliveryInputOneThird>
 
@@ -187,6 +196,7 @@ export function CheckoutForm() {
                 id="city"
                 type="text"
                 {...register('city')}
+                value={city}
               />
             </DeliveryInputTwoThirds>
 
@@ -196,6 +206,7 @@ export function CheckoutForm() {
                 id="uf"
                 type="text"
                 {...register('uf')}
+                value={uf}
               />
             </DeliveryInputSmall>
           </DeliveryDetailsLineContainer>
