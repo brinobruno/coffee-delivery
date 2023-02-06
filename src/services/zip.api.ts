@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-const DB_URL = 'https://viacep.com.br/ws/'
+import { DB_URL } from '../constants'
 
 export const db = axios.create({
   baseURL: DB_URL,
