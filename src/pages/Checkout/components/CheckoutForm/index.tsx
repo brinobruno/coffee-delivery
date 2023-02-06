@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm /*, useFormContext */ } from 'react-hook-form'
 import * as zod from 'zod'
@@ -49,6 +49,8 @@ export function CheckoutForm() {
   const currentTheme = useTheme()
   const { getItemsData, emptyCart } = useProductsInCartContext()
   const [paymentMethod, setPaymentMethod] = useState('')
+  const [zipAutocomplete, setZipAutocomplete] = useState(0)
+  const [addressesAutocompleted, setAddressesAutocompleted] = useState({})
   const navigate = useNavigate()
 
   const itemsRetrieved = getItemsData()
@@ -86,6 +88,28 @@ export function CheckoutForm() {
     reset()
   }
 
+  function handleTrackZipForAutocomplete(e: Event) {
+    setZipAutocomplete(parseInt((e.target as HTMLInputElement).value))
+  }
+
+  const URL = `https://viacep.com.br/ws/${zipAutocomplete}/json/`
+
+  useEffect(() => {
+    if (zipAutocomplete.toString().length === 8) {
+      fetch(URL, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'content-type': 'application/json;charset=utf-8',
+        },
+      }).then((data) => {
+        setAddressesAutocompleted(data.json())
+      })
+    }
+  }, [URL, zipAutocomplete])
+
+  console.log(addressesAutocompleted)
+
   return (
     <FormContainer
       id="checkout-form"
@@ -111,6 +135,7 @@ export function CheckoutForm() {
                 id="zip"
                 type="number"
                 {...register('zip', { valueAsNumber: true })}
+                onChange={() => handleTrackZipForAutocomplete}
               />
             </DeliveryInputOneThird>
           </DeliveryDetailsLineContainer>
